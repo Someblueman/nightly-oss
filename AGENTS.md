@@ -39,7 +39,8 @@ for candidate improvements; no other delegation is authorized.
    command-line tools, and developer utilities. Query public GitHub repositories
    with a recognized open source license, recent maintenance, documented tests,
    manageable source/dependencies, and no required private services or hardware.
-   Respect contribution/AI policies; skip projects that reject agent contributions.
+   Screen contribution/AI policies before adding candidates to the pool; skip
+   projects that reject agent contributions or this kind of automated work.
    Choose randomly from at least five eligible candidates with Python's
    `random.SystemRandom().choice`, and record the pool and selection. This is
    random within a filtered pool, not a uniform sample of GitHub. Exclude this
@@ -49,6 +50,28 @@ for candidate improvements; no other delegation is authorized.
    Avoid duplicate work. Inspect only enough code to identify one concrete target.
    Try at most three project setups and spend at most 20 minutes on selection/setup.
    If none works, report the blocker rather than inventing busywork.
+
+## Contribution policy
+
+Before implementation, including on a resumed project, check current upstream
+`CONTRIBUTING*`, README/contributor docs, applicable `AGENTS.md`, `.github` PR/issue
+templates, security guidance and linked project policies. Check applicable owner
+or organization `.github` defaults when the repository inherits them.
+
+Record source URLs, the checked revision and UTC time in the report, covering:
+
+- AI-generated/assisted or automated contributions, required human review and disclosure.
+- Accepted change scope, issue linkage and any required discussion before coding.
+- Coding conventions, tests/CI, compatibility, documentation and changelog requirements.
+- PR/commit format, attribution, license terms, CLA and DCO/sign-off requirements.
+
+If no explicit AI policy is found, say so; do not claim explicit acceptance.
+Skip projects that prohibit this work or have unclear/unmet prerequisites for
+starting it within the authorized workflow. Requirements that apply only to an
+upstream submission remain prerequisites for a future PR; record human-only steps
+under "Needs you". Do not contact maintainers, accept agreements, make attestations
+on the operator's behalf or invent a contributor backstory. Required checks still
+run within the existing isolation and budget; record checks that cannot be run.
 
 ## Work and prove
 
@@ -110,8 +133,10 @@ project are allowed for review; Git worktrees and candidate edits are not.
 
 - **Reproduce:** derive a checker from the claim before reading the patch/tests;
   demonstrate the baseline failure and changed behavior independently.
-- **Novelty:** check current upstream, issues and pull requests for duplicates and
-  contribution policies. Describe this as a duplicate-work check, not global novelty.
+- **Novelty:** check current upstream, issues and pull requests for duplicates.
+  Independently read current contribution policies and check candidate compliance;
+  cite sources and distinguish fork-publication requirements from future PR prerequisites.
+  Describe this as a duplicate-work check, not global novelty.
 - **Criterion:** inspect the full diff, seek counterexamples and compatibility
   regressions, and state the exact scope justified by the evidence.
 
@@ -124,14 +149,17 @@ Record the evidence in `result.json` and require
 
 ## Publish and carry forward
 
-For a verified improvement, create or reuse a public fork owned by `Someblueman`.
+For a verified improvement, require the current policy review to permit the work
+and fork publication; unresolved restrictions block publishing project code.
+Create or reuse a public fork owned by `Someblueman`.
 Check GitHub reports it as a fork of the selected upstream; never repurpose an
 unrelated same-named repository. Add its URL as the `publish` remote, confirm
 the exact destination, commit only the intended patch/tests, and push its named
 branch. Verify the remote SHA equals the tested result commit. Do not automatically
 open an upstream PR. Keep the upstream remote unchanged.
 
-If the operator separately authorizes an upstream PR, use a descriptive project
+If the operator separately authorizes an upstream PR, recheck the current policies
+and satisfy all submission prerequisites first. Use a descriptive project
 branch without nightly run labels. Keep its title, description, commit messages
 and diff focused on the project's problem, change and relevant validation.
 Do not include Nightly OSS branding, run dates/IDs, report links, run logs,

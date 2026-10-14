@@ -10,7 +10,8 @@ the standing authorization and put anything requiring the operator under
 2. Follow AGENTS.md from start to finish. Call night.py begin once, keep its fixed
    deadline, and write a dated report stub immediately. Do not renew a used budget.
    Use the date returned by the helper wherever these instructions say DATE.
-3. Select or resume one project. Before editing production code, save the exact
+3. Select or resume one project. Complete and record the contribution-policy check
+   in AGENTS.md before implementation. Before editing production code, save the exact
    claim and acceptance criteria in runs/DATE/claim.md. Prove the result using
    night.py run and preserve the actual check records and output.
 4. For a candidate improvement, start three fresh reviewers with only the claim,

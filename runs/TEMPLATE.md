@@ -10,6 +10,14 @@
 
 **Saved claim:** link to DATE/claim.md; write it before production edits
 
+## Contribution policy
+
+- Policy sources, checked upstream revision and UTC time (including applicable defaults)
+- AI/automation policy and disclosure requirements; distinguish no policy found from approval
+- Applicable scope, coding, tests/CI, docs, changelog, PR/commit, CLA/DCO and attribution rules
+- Compliance evidence, unavailable checks and decision to proceed or skip
+- **Needs you:** human-only steps and outstanding prerequisites for any future upstream PR
+
 ## Evidence
 
 - Baseline: exact command, inputs, source reference, result
@@ -22,7 +30,7 @@
 ## Independent review
 
 - Reproduce: fresh reviewer, exact candidate commit, verdict and evidence
-- Novelty: current upstream and duplicate-work search, verdict and sources
+- Novelty: current upstream, duplicate-work search and policy recheck, verdict and sources
 - Criterion: exact confirmed scope, counterexamples checked and verdict
 - Evidence gate: exact check_run.py command and observed output
 
