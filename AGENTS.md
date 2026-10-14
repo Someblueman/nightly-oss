@@ -131,6 +131,16 @@ the exact destination, commit only the intended patch/tests, and push its named
 branch. Verify the remote SHA equals the tested result commit. Do not automatically
 open an upstream PR. Keep the upstream remote unchanged.
 
+If the operator separately authorizes an upstream PR, use a descriptive project
+branch without nightly run labels. Keep its title, description, commit messages
+and diff focused on the project's problem, change and relevant validation.
+Do not include Nightly OSS branding, run dates/IDs, report links, run logs,
+reviewer transcripts or controller files. Keep that material in this results
+repository; the project contribution contains only its code, tests and relevant
+documentation. Follow upstream templates and required AI-assistance disclosures
+truthfully. If a required disclosure would expose nightly run information, flag
+that conflict to the operator before submission rather than silently omitting it.
+
 Write `runs/YYYY-MM-DD.md` using `runs/TEMPLATE.md`, including failures and misses.
 Copy only the minimal public-safe proof artifacts into `runs/YYYY-MM-DD/` when
 needed. Keep raw transcripts, local paths, credentials and unrelated data private.

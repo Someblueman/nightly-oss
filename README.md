@@ -17,6 +17,8 @@ results that someone else can check. This is an independent software experiment.
   least every third working night. Retire a lead after two nights without new evidence.
 - **Publication:** push verified changes to our forks and reports here. Upstream
   pull requests, issues, messages, releases, and package publication are separate decisions.
+  When authorized, upstream PRs contain the project change and relevant validation;
+  Nightly OSS reports and run details stay here. Required upstream disclosures still apply.
 
 A passing test suite alone does not establish an improvement. Bug fixes need a
 reproducer that fails before and passes after. Performance changes need repeated
