@@ -1,0 +1,16 @@
+{
+  "role": "criterion",
+  "context": "fresh agent",
+  "candidate_commit": "835936b0f21dac309132a7ab7f01b0a2a86e233c",
+  "pass": true,
+  "summary": "The exact candidate fixes the stated item-key brace handling. An independently defined contract checker found no failure in 9,630 valid format strings, while the same checker found 1,967 baseline failures. Complete diff review found no weakened existing assertion, public signature change or foreseeable compatibility regression for supported format strings. This verdict does not claim correctness for malformed strings or exhaustive coverage.",
+  "confirmed_scope": "On Python 3.12.15, the candidate preserved item-key text, inferred only omitted argument names and returned correct token field names for all 9,630 valid cases in the independent corpus.",
+  "evidence": [
+    "Public definition: https://docs.python.org/3/library/string.html#format-string-syntax permits all source characters except ] in item index strings and describes omitted argument numbering, conversion flags, escaped braces and nested format fields.",
+    "The independent generator in runs/2026-10-14/reviews/criterion.py was initially defined from that contract before reading candidate source or author tests, then extended with nested-width lookups and ordinary attribute/numeric-index cases. It checks exact inferred strings, equivalence with built-in str.format output and token field names against string.Formatter.parse.",
+    "Reviewed the entire diff with git -C .work/checkouts/mahmoud-boltons diff 4e5faa3d7e4008d89e0d8bf1ea87b6d9a061a16d 835936b0f21dac309132a7ab7f01b0a2a86e233c -- boltons/formatutils.py tests/test_formatutils.py. The production change consumes complete field names including item keys; the test change adds cases without deleting or relaxing existing assertions. git diff --check passed and the candidate checkout was clean.",
+    "Executed python3 night.py run --checkout .work/checkouts/mahmoud-boltons --image python:3.12-slim --timeout 60 -- python -c with the inline independent checker and the exact baseline module obtained by git show. The full executed command and source snapshot metadata are retained in .work/evidence/2026-10-14/f09c89d11d94/result.json; actual output is .work/evidence/2026-10-14/f09c89d11d94/output.log.",
+    "Environment: Python 3.12.15; official image digest python@sha256:a6e34c598f2467ed0e9a8d349809fcd8b5c603269512df273a0bb1784edc11b1; candidate source snapshot SHA256 15954440459eeb9f58b76b4c73e4d3c03028550dbf3abab8e81a05f6efb4fd16; boltons/formatutils.py SHA256 376af32750da34e8128a33c498ba30f62bdfd41e75c652f3e00a42cc9d08f3cc.",
+    "Result: exit 0 in 0.497 seconds. Baseline: 9,630 valid cases, 1,967 failures. Candidate: 9,630 valid cases, zero failures. The built-in formatting oracle rejected 296 generated nested-field strings before checking either implementation; those are outside the confirmed supported-string scope. Cases include anonymous/named/numbered roots, brace and bracket keys, Unicode keys, repeated item lookups, all conversion flags, nested widths, escaped braces, bracket fill characters and literal brackets. No downloaded code ran on the host."
+  ]
+}

@@ -1,0 +1,388 @@
+{
+  "cases": 76,
+  "failures": [
+    {
+      "actual": "{0[{1}]} {2}",
+      "actual_fields": [
+        "0[{1}]",
+        "2"
+      ],
+      "case": "claim-example",
+      "expected": "{0[{}]} {1}",
+      "expected_fields": [
+        "0[{}]",
+        "1"
+      ],
+      "input": "{[{}]} {}",
+      "problems": [
+        "inferred format differs",
+        "format raised KeyError: '{1}'",
+        "token fields differ"
+      ]
+    },
+    {
+      "actual": "{0[{1}]}|{2}",
+      "actual_fields": [
+        "0[{1}]",
+        "2"
+      ],
+      "case": "auto-'{}'",
+      "expected": "{0[{}]}|{1}",
+      "expected_fields": [
+        "0[{}]",
+        "1"
+      ],
+      "input": "{[{}]}|{}",
+      "problems": [
+        "inferred format differs",
+        "format raised KeyError: '{1}'",
+        "token fields differ"
+      ]
+    },
+    {
+      "actual": "{data[{0}]}|{1}",
+      "actual_fields": [
+        "data[{0}]",
+        "1"
+      ],
+      "case": "named-'{}'",
+      "expected": "{data[{}]}|{0}",
+      "expected_fields": [
+        "data[{}]",
+        "0"
+      ],
+      "input": "{data[{}]}|{}",
+      "problems": [
+        "inferred format differs",
+        "format raised KeyError: '{0}'",
+        "token fields differ"
+      ]
+    },
+    {
+      "actual": "{0[{0}]}|{1}",
+      "actual_fields": [
+        "0[{0}]",
+        "1"
+      ],
+      "case": "explicit-'{}'",
+      "expected": "{0[{}]}|{1}",
+      "expected_fields": [
+        "0[{}]",
+        "1"
+      ],
+      "input": "{0[{}]}|{1}",
+      "problems": [
+        "inferred format differs",
+        "format raised KeyError: '{0}'",
+        "token fields differ"
+      ]
+    },
+    {
+      "actual": "{0[{1}]!r:>{2}}|{3}",
+      "actual_fields": [
+        "0[{1}]",
+        "3"
+      ],
+      "case": "conversion-'{}'",
+      "expected": "{0[{}]!r:>{1}}|{2}",
+      "expected_fields": [
+        "0[{}]",
+        "2"
+      ],
+      "input": "{[{}]!r:>{}}|{}",
+      "problems": [
+        "inferred format differs",
+        "format raised KeyError: '{1}'",
+        "token fields differ"
+      ]
+    },
+    {
+      "actual": "{0:>{1[{2}]}}|{3}",
+      "actual_fields": [
+        "0",
+        "3"
+      ],
+      "case": "nested-width-'{}'",
+      "expected": "{0:>{1[{}]}}|{2}",
+      "expected_fields": [
+        "0",
+        "2"
+      ],
+      "input": "{:>{[{}]}}|{}",
+      "problems": [
+        "inferred format differs",
+        "format raised KeyError: '{2}'",
+        "token fields differ"
+      ]
+    },
+    {
+      "actual": "{0[[{1}]}|{2}",
+      "actual_fields": [
+        "0[[{1}]",
+        "2"
+      ],
+      "case": "auto-'[{}'",
+      "expected": "{0[[{}]}|{1}",
+      "expected_fields": [
+        "0[[{}]",
+        "1"
+      ],
+      "input": "{[[{}]}|{}",
+      "problems": [
+        "inferred format differs",
+        "format raised KeyError: '[{1}'",
+        "token fields differ"
+      ]
+    },
+    {
+      "actual": "{data[[{0}]}|{1}",
+      "actual_fields": [
+        "data[[{0}]",
+        "1"
+      ],
+      "case": "named-'[{}'",
+      "expected": "{data[[{}]}|{0}",
+      "expected_fields": [
+        "data[[{}]",
+        "0"
+      ],
+      "input": "{data[[{}]}|{}",
+      "problems": [
+        "inferred format differs",
+        "format raised KeyError: '[{0}'",
+        "token fields differ"
+      ]
+    },
+    {
+      "actual": "{0[[{0}]}|{1}",
+      "actual_fields": [
+        "0[[{0}]",
+        "1"
+      ],
+      "case": "explicit-'[{}'",
+      "expected": "{0[[{}]}|{1}",
+      "expected_fields": [
+        "0[[{}]",
+        "1"
+      ],
+      "input": "{0[[{}]}|{1}",
+      "problems": [
+        "inferred format differs",
+        "format raised KeyError: '[{0}'",
+        "token fields differ"
+      ]
+    },
+    {
+      "actual": "{0[[{1}]!r:>{2}}|{3}",
+      "actual_fields": [
+        "0[[{1}]",
+        "3"
+      ],
+      "case": "conversion-'[{}'",
+      "expected": "{0[[{}]!r:>{1}}|{2}",
+      "expected_fields": [
+        "0[[{}]",
+        "2"
+      ],
+      "input": "{[[{}]!r:>{}}|{}",
+      "problems": [
+        "inferred format differs",
+        "format raised KeyError: '[{1}'",
+        "token fields differ"
+      ]
+    },
+    {
+      "actual": "{0:>{1[[{2}]}}|{3}",
+      "actual_fields": [
+        "0",
+        "3"
+      ],
+      "case": "nested-width-'[{}'",
+      "expected": "{0:>{1[[{}]}}|{2}",
+      "expected_fields": [
+        "0",
+        "2"
+      ],
+      "input": "{:>{[[{}]}}|{}",
+      "problems": [
+        "inferred format differs",
+        "format raised KeyError: '[{2}'",
+        "token fields differ"
+      ]
+    },
+    {
+      "actual": "{0[!r:{1}]}|{2}",
+      "actual_fields": [
+        "0[!r:{1}]",
+        "2"
+      ],
+      "case": "auto-'!r:{}'",
+      "expected": "{0[!r:{}]}|{1}",
+      "expected_fields": [
+        "0[!r:{}]",
+        "1"
+      ],
+      "input": "{[!r:{}]}|{}",
+      "problems": [
+        "inferred format differs",
+        "format raised KeyError: '!r:{1}'",
+        "token fields differ"
+      ]
+    },
+    {
+      "actual": "{data[!r:{0}]}|{1}",
+      "actual_fields": [
+        "data[!r:{0}]",
+        "1"
+      ],
+      "case": "named-'!r:{}'",
+      "expected": "{data[!r:{}]}|{0}",
+      "expected_fields": [
+        "data[!r:{}]",
+        "0"
+      ],
+      "input": "{data[!r:{}]}|{}",
+      "problems": [
+        "inferred format differs",
+        "format raised KeyError: '!r:{0}'",
+        "token fields differ"
+      ]
+    },
+    {
+      "actual": "{0[!r:{0}]}|{1}",
+      "actual_fields": [
+        "0[!r:{0}]",
+        "1"
+      ],
+      "case": "explicit-'!r:{}'",
+      "expected": "{0[!r:{}]}|{1}",
+      "expected_fields": [
+        "0[!r:{}]",
+        "1"
+      ],
+      "input": "{0[!r:{}]}|{1}",
+      "problems": [
+        "inferred format differs",
+        "format raised KeyError: '!r:{0}'",
+        "token fields differ"
+      ]
+    },
+    {
+      "actual": "{0[!r:{1}]!r:>{2}}|{3}",
+      "actual_fields": [
+        "0[!r:{1}]",
+        "3"
+      ],
+      "case": "conversion-'!r:{}'",
+      "expected": "{0[!r:{}]!r:>{1}}|{2}",
+      "expected_fields": [
+        "0[!r:{}]",
+        "2"
+      ],
+      "input": "{[!r:{}]!r:>{}}|{}",
+      "problems": [
+        "inferred format differs",
+        "format raised KeyError: '!r:{1}'",
+        "token fields differ"
+      ]
+    },
+    {
+      "actual": "{0:>{1[!r:{2}]}}|{3}",
+      "actual_fields": [
+        "0",
+        "3"
+      ],
+      "case": "nested-width-'!r:{}'",
+      "expected": "{0:>{1[!r:{}]}}|{2}",
+      "expected_fields": [
+        "0",
+        "2"
+      ],
+      "input": "{:>{[!r:{}]}}|{}",
+      "problems": [
+        "inferred format differs",
+        "format raised KeyError: '!r:{2}'",
+        "token fields differ"
+      ]
+    },
+    {
+      "actual": "{0.value[{1}]} {2}",
+      "actual_fields": [
+        "0.value[{1}]",
+        "2"
+      ],
+      "case": "attribute-then-item",
+      "expected": "{0.value[{}]} {1}",
+      "expected_fields": [
+        "0.value[{}]",
+        "1"
+      ],
+      "input": "{.value[{}]} {}",
+      "problems": [
+        "inferred format differs",
+        "format raised KeyError: '{1}'",
+        "token fields differ"
+      ]
+    },
+    {
+      "actual": "{0[{1}].value} {2}",
+      "actual_fields": [
+        "0[{1}].value",
+        "2"
+      ],
+      "case": "item-then-attribute",
+      "expected": "{0[{}].value} {1}",
+      "expected_fields": [
+        "0[{}].value",
+        "1"
+      ],
+      "input": "{[{}].value} {}",
+      "problems": [
+        "inferred format differs",
+        "format raised KeyError: '{1}'",
+        "token fields differ"
+      ]
+    },
+    {
+      "actual": "{{{0[{1}]}}} [{2}]",
+      "actual_fields": [
+        "0[{1}]",
+        "2"
+      ],
+      "case": "escaped-braces",
+      "expected": "{{{0[{}]}}} [{1}]",
+      "expected_fields": [
+        "0[{}]",
+        "1"
+      ],
+      "input": "{{{[{}]}}} [{}]",
+      "problems": [
+        "inferred format differs",
+        "format raised KeyError: '{1}'",
+        "token fields differ"
+      ]
+    },
+    {
+      "actual": "{data[{0}]!a:>{width[{1}]}} {tail}",
+      "actual_fields": [
+        "data[{0}]",
+        "tail"
+      ],
+      "case": "named-width",
+      "expected": "{data[{}]!a:>{width[{}]}} {tail}",
+      "expected_fields": [
+        "data[{}]",
+        "tail"
+      ],
+      "input": "{data[{}]!a:>{width[{}]}} {tail}",
+      "problems": [
+        "inferred format differs",
+        "format raised KeyError: '{0}'",
+        "token fields differ"
+      ]
+    }
+  ],
+  "oracle_errors": [],
+  "passed": 56,
+  "python": "3.12.15"
+}

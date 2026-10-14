@@ -1,0 +1,63 @@
+{
+  "status": "verified",
+  "summary": "Boltons preserves braces inside format-field dictionary keys, with before/after proof and three independent passing reviews.",
+  "kind": "bug",
+  "upstream": "mahmoud/boltons",
+  "baseline_commit": "4e5faa3d7e4008d89e0d8bf1ea87b6d9a061a16d",
+  "candidate_commit": "835936b0f21dac309132a7ab7f01b0a2a86e233c",
+  "candidate_source_sha256": "15954440459eeb9f58b76b4c73e4d3c03028550dbf3abab8e81a05f6efb4fd16",
+  "claim": "claim.md",
+  "checks": {
+    "before": {
+      "record": "evidence/before.json",
+      "output": "evidence/before.log",
+      "output_sha256": "622f3c7e648d28e3642c444f68e4a6a8107c3435e8bce52161d47dd531b4544f"
+    },
+    "after": {
+      "record": "evidence/after.json",
+      "output": "evidence/after.log",
+      "output_sha256": "15385b6dd130f3d3c2bcb37267b86e64286097deea4eabf88993bc5cac8dd2e7"
+    },
+    "acceptance": [
+      {
+        "record": "evidence/suite-py312.json",
+        "output": "evidence/suite-py312.log",
+        "output_sha256": "4a627daaf5004273a3270577417f89bfeea84eb3a4874a334953f7ab71c77ecf"
+      },
+      {
+        "record": "evidence/suite-py314.json",
+        "output": "evidence/suite-py314.log",
+        "output_sha256": "24b75089bdd20c8571174e4f74cf088a7f50afa31a0e35ef5ce3f8af4b915ae7"
+      }
+    ]
+  },
+  "additional_evidence": {
+    "baseline-suite": {
+      "record": "evidence/baseline-suite.json",
+      "output": "evidence/baseline-suite.log",
+      "output_sha256": "ff1367b0c8120fc222f2dc1659ef65dd013ff9450ad894f066cd3f8c28e4ca30"
+    },
+    "independent-before": {
+      "record": "evidence/independent-before.json",
+      "output": "evidence/independent-before.log",
+      "output_sha256": "8cb9780dfe7c2843977036938520b3b58b122b1714b97c9d74c585e11d9c70bc"
+    },
+    "independent-after": {
+      "record": "evidence/independent-after.json",
+      "output": "evidence/independent-after.log",
+      "output_sha256": "cd69535a6f31f1e40aa89e6bfe3de3768372882e047e1c560c0cf8f88bdd9b18"
+    },
+    "criterion": {
+      "record": "evidence/criterion.json",
+      "output": "evidence/criterion.log",
+      "output_sha256": "8912885b0723735905ec3b684d4f38ffbdf37cc2e18ae3e8a4b16cc7339cef57"
+    }
+  },
+  "publication": {
+    "repository": "Someblueman/boltons",
+    "parent": "mahmoud/boltons",
+    "branch": "nightly/2026-10-14-format-item-braces",
+    "commit": "835936b0f21dac309132a7ab7f01b0a2a86e233c",
+    "remote_commit": "835936b0f21dac309132a7ab7f01b0a2a86e233c"
+  }
+}

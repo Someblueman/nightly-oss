@@ -1,0 +1,20 @@
+{
+  "started": "2026-10-14T07:08:21.277411+00:00",
+  "upstream_or_head_commit": "4e5faa3d7e4008d89e0d8bf1ea87b6d9a061a16d",
+  "source_sha256": "3b77044c716f414d9986c6509999b1a0253bd1e07cc090f1f05424c0371f7fff",
+  "image": {
+    "id": "sha256:a6e34c598f2467ed0e9a8d349809fcd8b5c603269512df273a0bb1784edc11b1",
+    "digests": [
+      "python@sha256:a6e34c598f2467ed0e9a8d349809fcd8b5c603269512df273a0bb1784edc11b1"
+    ]
+  },
+  "command": [
+    "sh",
+    "-c",
+    "python -m venv /work/.trial-venv && /work/.trial-venv/bin/python -m pip --disable-pip-version-check install pytest && /work/.trial-venv/bin/python -m pytest tests/test_formatutils.py -q"
+  ],
+  "exit_code": 1,
+  "timeout_seconds": 120,
+  "container_name": "nightly-oss-fad6a44ede06",
+  "elapsed_seconds": 4.294
+}

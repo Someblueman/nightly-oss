@@ -1,0 +1,20 @@
+{
+  "started": "2026-10-14T07:12:39.048235+00:00",
+  "upstream_or_head_commit": "4e5faa3d7e4008d89e0d8bf1ea87b6d9a061a16d",
+  "source_sha256": "15954440459eeb9f58b76b4c73e4d3c03028550dbf3abab8e81a05f6efb4fd16",
+  "image": {
+    "id": "sha256:a2b82f3c48559aa0a8446d9af49826b6e2b2016f4cd2afabfe6013ec53729170",
+    "digests": [
+      "python@sha256:a2b82f3c48559aa0a8446d9af49826b6e2b2016f4cd2afabfe6013ec53729170"
+    ]
+  },
+  "command": [
+    "sh",
+    "-c",
+    "python -m venv /work/.trial-venv && /work/.trial-venv/bin/python -m pip --disable-pip-version-check install tox tox-uv && UV_CACHE_DIR=/work/.trial-uv-cache /work/.trial-venv/bin/tox -e py314"
+  ],
+  "exit_code": 0,
+  "timeout_seconds": 180,
+  "container_name": "nightly-oss-5bc5a1b80915",
+  "elapsed_seconds": 10.876
+}

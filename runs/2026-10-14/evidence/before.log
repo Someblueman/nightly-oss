@@ -1,0 +1,214 @@
+WARNING: The directory '/.cache/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.
+Collecting pytest
+  Downloading pytest-9.1.1-py3-none-any.whl.metadata (7.6 kB)
+Collecting iniconfig>=1.0.1 (from pytest)
+  Downloading iniconfig-2.3.1-py3-none-any.whl.metadata (2.8 kB)
+Collecting packaging>=22 (from pytest)
+  Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+Collecting pluggy<2,>=1.5 (from pytest)
+  Downloading pluggy-1.6.0-py3-none-any.whl.metadata (4.8 kB)
+Collecting pygments>=2.7.2 (from pytest)
+  Downloading pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)
+Downloading pytest-9.1.1-py3-none-any.whl (386 kB)
+Downloading iniconfig-2.3.1-py3-none-any.whl (7.6 kB)
+Downloading packaging-26.3-py3-none-any.whl (129 kB)
+Downloading pluggy-1.6.0-py3-none-any.whl (20 kB)
+Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 56.0 MB/s eta 0:00:00
+Installing collected packages: pygments, pluggy, packaging, iniconfig, pytest
+Successfully installed iniconfig-2.3.1 packaging-26.3 pluggy-1.6.0 pygments-2.21.0 pytest-9.1.1
+.FFFFFF.F....                                                            [100%]
+=================================== FAILURES ===================================
+_______ test_pos_infer_item_braces[{[{}]} {}-{0[{}]} {1}-args0-kwargs0] ________
+
+template = '{[{}]} {}', expected = '{0[{}]} {1}'
+args = ({'{}': 'value'}, 'tail'), kwargs = {}
+
+    @pytest.mark.parametrize('template, expected, args, kwargs', [
+        ('{[{}]} {}', '{0[{}]} {1}', ({'{}': 'value'}, 'tail'), {}),
+        ('{data[{}]} {}', '{data[{}]} {0}', ('tail',),
+         {'data': {'{}': 'value'}}),
+        ('{0[{}]} {1}', '{0[{}]} {1}', ({'{}': 'value'}, 'tail'), {}),
+        ('[{[{:}]}] {:>{}}', '[{0[{:}]}] {1:>{2}}',
+         ({'{:}': 'value'}, 'end', 5), {}),
+        ('{[first][{!r}]} {!s}', '{0[first][{!r}]} {1!s}',
+         ({'first': {'{!r}': 'value'}}, 'tail'), {}),
+        ('{{{[{}]}}}', '{{{0[{}]}}}', ({'{}': 'value'},), {}),
+        ('[{}] {{[{}]}} {:>{}}', '[{0}] {{[{1}]}} {2:>{3}}',
+         ('first', 'second', 'end', 5), {}),
+    ])
+    def test_pos_infer_item_braces(template, expected, args, kwargs):
+        converted = infer_positional_format_args(template)
+>       assert converted == expected
+E       AssertionError: assert '{0[{1}]} {2}' == '{0[{}]} {1}'
+E         
+E         - {0[{}]} {1}
+E         ?          ^
+E         + {0[{1}]} {2}
+E         ?     +     ^
+
+tests/test_formatutils.py:43: AssertionError
+____ test_pos_infer_item_braces[{data[{}]} {}-{data[{}]} {0}-args1-kwargs1] ____
+
+template = '{data[{}]} {}', expected = '{data[{}]} {0}', args = ('tail',)
+kwargs = {'data': {'{}': 'value'}}
+
+    @pytest.mark.parametrize('template, expected, args, kwargs', [
+        ('{[{}]} {}', '{0[{}]} {1}', ({'{}': 'value'}, 'tail'), {}),
+        ('{data[{}]} {}', '{data[{}]} {0}', ('tail',),
+         {'data': {'{}': 'value'}}),
+        ('{0[{}]} {1}', '{0[{}]} {1}', ({'{}': 'value'}, 'tail'), {}),
+        ('[{[{:}]}] {:>{}}', '[{0[{:}]}] {1:>{2}}',
+         ({'{:}': 'value'}, 'end', 5), {}),
+        ('{[first][{!r}]} {!s}', '{0[first][{!r}]} {1!s}',
+         ({'first': {'{!r}': 'value'}}, 'tail'), {}),
+        ('{{{[{}]}}}', '{{{0[{}]}}}', ({'{}': 'value'},), {}),
+        ('[{}] {{[{}]}} {:>{}}', '[{0}] {{[{1}]}} {2:>{3}}',
+         ('first', 'second', 'end', 5), {}),
+    ])
+    def test_pos_infer_item_braces(template, expected, args, kwargs):
+        converted = infer_positional_format_args(template)
+>       assert converted == expected
+E       AssertionError: assert '{data[{0}]} {1}' == '{data[{}]} {0}'
+E         
+E         - {data[{}]} {0}
+E         ?             ^
+E         + {data[{0}]} {1}
+E         ?        +     ^
+
+tests/test_formatutils.py:43: AssertionError
+______ test_pos_infer_item_braces[{0[{}]} {1}-{0[{}]} {1}-args2-kwargs2] _______
+
+template = '{0[{}]} {1}', expected = '{0[{}]} {1}'
+args = ({'{}': 'value'}, 'tail'), kwargs = {}
+
+    @pytest.mark.parametrize('template, expected, args, kwargs', [
+        ('{[{}]} {}', '{0[{}]} {1}', ({'{}': 'value'}, 'tail'), {}),
+        ('{data[{}]} {}', '{data[{}]} {0}', ('tail',),
+         {'data': {'{}': 'value'}}),
+        ('{0[{}]} {1}', '{0[{}]} {1}', ({'{}': 'value'}, 'tail'), {}),
+        ('[{[{:}]}] {:>{}}', '[{0[{:}]}] {1:>{2}}',
+         ({'{:}': 'value'}, 'end', 5), {}),
+        ('{[first][{!r}]} {!s}', '{0[first][{!r}]} {1!s}',
+         ({'first': {'{!r}': 'value'}}, 'tail'), {}),
+        ('{{{[{}]}}}', '{{{0[{}]}}}', ({'{}': 'value'},), {}),
+        ('[{}] {{[{}]}} {:>{}}', '[{0}] {{[{1}]}} {2:>{3}}',
+         ('first', 'second', 'end', 5), {}),
+    ])
+    def test_pos_infer_item_braces(template, expected, args, kwargs):
+        converted = infer_positional_format_args(template)
+>       assert converted == expected
+E       AssertionError: assert '{0[{0}]} {1}' == '{0[{}]} {1}'
+E         
+E         - {0[{}]} {1}
+E         + {0[{0}]} {1}
+E         ?     +
+
+tests/test_formatutils.py:43: AssertionError
+_ test_pos_infer_item_braces[[{[{:}]}] {:>{}}-[{0[{:}]}] {1:>{2}}-args3-kwargs3] _
+
+template = '[{[{:}]}] {:>{}}', expected = '[{0[{:}]}] {1:>{2}}'
+args = ({'{:}': 'value'}, 'end', 5), kwargs = {}
+
+    @pytest.mark.parametrize('template, expected, args, kwargs', [
+        ('{[{}]} {}', '{0[{}]} {1}', ({'{}': 'value'}, 'tail'), {}),
+        ('{data[{}]} {}', '{data[{}]} {0}', ('tail',),
+         {'data': {'{}': 'value'}}),
+        ('{0[{}]} {1}', '{0[{}]} {1}', ({'{}': 'value'}, 'tail'), {}),
+        ('[{[{:}]}] {:>{}}', '[{0[{:}]}] {1:>{2}}',
+         ({'{:}': 'value'}, 'end', 5), {}),
+        ('{[first][{!r}]} {!s}', '{0[first][{!r}]} {1!s}',
+         ({'first': {'{!r}': 'value'}}, 'tail'), {}),
+        ('{{{[{}]}}}', '{{{0[{}]}}}', ({'{}': 'value'},), {}),
+        ('[{}] {{[{}]}} {:>{}}', '[{0}] {{[{1}]}} {2:>{3}}',
+         ('first', 'second', 'end', 5), {}),
+    ])
+    def test_pos_infer_item_braces(template, expected, args, kwargs):
+        converted = infer_positional_format_args(template)
+>       assert converted == expected
+E       AssertionError: assert '[{0[{1:}]}] {2:>{3}}' == '[{0[{:}]}] {1:>{2}}'
+E         
+E         - [{0[{:}]}] {1:>{2}}
+E         ?             ^   ^
+E         + [{0[{1:}]}] {2:>{3}}
+E         ?      +       ^   ^
+
+tests/test_formatutils.py:43: AssertionError
+_ test_pos_infer_item_braces[{[first][{!r}]} {!s}-{0[first][{!r}]} {1!s}-args4-kwargs4] _
+
+template = '{[first][{!r}]} {!s}', expected = '{0[first][{!r}]} {1!s}'
+args = ({'first': {'{!r}': 'value'}}, 'tail'), kwargs = {}
+
+    @pytest.mark.parametrize('template, expected, args, kwargs', [
+        ('{[{}]} {}', '{0[{}]} {1}', ({'{}': 'value'}, 'tail'), {}),
+        ('{data[{}]} {}', '{data[{}]} {0}', ('tail',),
+         {'data': {'{}': 'value'}}),
+        ('{0[{}]} {1}', '{0[{}]} {1}', ({'{}': 'value'}, 'tail'), {}),
+        ('[{[{:}]}] {:>{}}', '[{0[{:}]}] {1:>{2}}',
+         ({'{:}': 'value'}, 'end', 5), {}),
+        ('{[first][{!r}]} {!s}', '{0[first][{!r}]} {1!s}',
+         ({'first': {'{!r}': 'value'}}, 'tail'), {}),
+        ('{{{[{}]}}}', '{{{0[{}]}}}', ({'{}': 'value'},), {}),
+        ('[{}] {{[{}]}} {:>{}}', '[{0}] {{[{1}]}} {2:>{3}}',
+         ('first', 'second', 'end', 5), {}),
+    ])
+    def test_pos_infer_item_braces(template, expected, args, kwargs):
+        converted = infer_positional_format_args(template)
+>       assert converted == expected
+E       AssertionError: assert '{0[first][{1!r}]} {2!s}' == '{0[first][{!r}]} {1!s}'
+E         
+E         - {0[first][{!r}]} {1!s}
+E         ?                   ^
+E         + {0[first][{1!r}]} {2!s}
+E         ?            +       ^
+
+tests/test_formatutils.py:43: AssertionError
+_______ test_pos_infer_item_braces[{{{[{}]}}}-{{{0[{}]}}}-args5-kwargs5] _______
+
+template = '{{{[{}]}}}', expected = '{{{0[{}]}}}', args = ({'{}': 'value'},)
+kwargs = {}
+
+    @pytest.mark.parametrize('template, expected, args, kwargs', [
+        ('{[{}]} {}', '{0[{}]} {1}', ({'{}': 'value'}, 'tail'), {}),
+        ('{data[{}]} {}', '{data[{}]} {0}', ('tail',),
+         {'data': {'{}': 'value'}}),
+        ('{0[{}]} {1}', '{0[{}]} {1}', ({'{}': 'value'}, 'tail'), {}),
+        ('[{[{:}]}] {:>{}}', '[{0[{:}]}] {1:>{2}}',
+         ({'{:}': 'value'}, 'end', 5), {}),
+        ('{[first][{!r}]} {!s}', '{0[first][{!r}]} {1!s}',
+         ({'first': {'{!r}': 'value'}}, 'tail'), {}),
+        ('{{{[{}]}}}', '{{{0[{}]}}}', ({'{}': 'value'},), {}),
+        ('[{}] {{[{}]}} {:>{}}', '[{0}] {{[{1}]}} {2:>{3}}',
+         ('first', 'second', 'end', 5), {}),
+    ])
+    def test_pos_infer_item_braces(template, expected, args, kwargs):
+        converted = infer_positional_format_args(template)
+>       assert converted == expected
+E       AssertionError: assert '{{{0[{1}]}}}' == '{{{0[{}]}}}'
+E         
+E         - {{{0[{}]}}}
+E         + {{{0[{1}]}}}
+E         ?       +
+
+tests/test_formatutils.py:43: AssertionError
+__________________________ test_tokenize_item_braces ___________________________
+
+    def test_tokenize_item_braces():
+        field, literal, following = tokenize_format_str('{[{}]} {}')
+>       assert field.fname == '0[{}]'
+E       AssertionError: assert '0[{1}]' == '0[{}]'
+E         
+E         - 0[{}]
+E         + 0[{1}]
+E         ?    +
+
+tests/test_formatutils.py:49: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_formatutils.py::test_pos_infer_item_braces[{[{}]} {}-{0[{}]} {1}-args0-kwargs0]
+FAILED tests/test_formatutils.py::test_pos_infer_item_braces[{data[{}]} {}-{data[{}]} {0}-args1-kwargs1]
+FAILED tests/test_formatutils.py::test_pos_infer_item_braces[{0[{}]} {1}-{0[{}]} {1}-args2-kwargs2]
+FAILED tests/test_formatutils.py::test_pos_infer_item_braces[[{[{:}]}] {:>{}}-[{0[{:}]}] {1:>{2}}-args3-kwargs3]
+FAILED tests/test_formatutils.py::test_pos_infer_item_braces[{[first][{!r}]} {!s}-{0[first][{!r}]} {1!s}-args4-kwargs4]
+FAILED tests/test_formatutils.py::test_pos_infer_item_braces[{{{[{}]}}}-{{{0[{}]}}}-args5-kwargs5]
+FAILED tests/test_formatutils.py::test_tokenize_item_braces - AssertionError:...
+7 failed, 6 passed in 0.03s

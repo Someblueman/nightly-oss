@@ -1,0 +1,7 @@
+{
+  "cases": 76,
+  "failures": [],
+  "oracle_errors": [],
+  "passed": 76,
+  "python": "3.12.15"
+}

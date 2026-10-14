@@ -1,0 +1,20 @@
+{
+  "started": "2026-10-14T07:21:59.493921+00:00",
+  "upstream_or_head_commit": "835936b0f21dac309132a7ab7f01b0a2a86e233c",
+  "source_sha256": "15954440459eeb9f58b76b4c73e4d3c03028550dbf3abab8e81a05f6efb4fd16",
+  "image": {
+    "id": "sha256:a6e34c598f2467ed0e9a8d349809fcd8b5c603269512df273a0bb1784edc11b1",
+    "digests": [
+      "python@sha256:a6e34c598f2467ed0e9a8d349809fcd8b5c603269512df273a0bb1784edc11b1"
+    ]
+  },
+  "command": [
+    "sh",
+    "-c",
+    "python -m venv /work/reproduce-venv && /work/reproduce-venv/bin/python -m pip install --cache-dir /work/reproduce-pip-cache tox tox-uv && UV_CACHE_DIR=/work/reproduce-uv-cache VIRTUALENV_OVERRIDE_APP_DATA=/work/reproduce-virtualenv /work/reproduce-venv/bin/tox -e py312"
+  ],
+  "exit_code": 0,
+  "timeout_seconds": 300,
+  "container_name": "nightly-oss-06133208dcd7",
+  "elapsed_seconds": 10.679
+}
