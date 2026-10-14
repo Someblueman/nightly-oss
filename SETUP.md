@@ -24,5 +24,17 @@ Python 3.12.15 container image:
 `python@sha256:a6e34c598f2467ed0e9a8d349809fcd8b5c603269512df273a0bb1784edc11b1`
 
 Python compilation and Git whitespace checks also passed. GitHub discovery and
-the authenticated publication account were checked. The overnight project-selection,
-improvement, and fork-publication loop has not yet completed its first real run.
+the authenticated publication account were checked.
+
+The [first live trial](runs/2026-10-14.md) selected Boltons, demonstrated a real
+regression before and after a fix, passed its complete suite on Python 3.12 and
+3.14, obtained three fresh independent reviews, and published the verified commit
+to a public fork with remote equality confirmed. The scheduled 02:00 invocation
+has not itself fired yet.
+
+During that trial the operator requested the V3R1T4S-style file entry point,
+independent reviewers and record gate. The added gate's checks and the existing
+controller unit tests pass: 14 tests, with the three opt-in Docker boundary tests
+skipped in this subsequent unit run. The Docker boundary was unchanged; the
+project's real checks and independent reproductions exercised it throughout the
+trial. The original 11-test Docker-enabled setup result above remains separate.

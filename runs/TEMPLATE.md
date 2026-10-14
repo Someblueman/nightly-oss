@@ -8,6 +8,8 @@
 
 **Claim and acceptance:** observable behavior or measured benefit decided before editing
 
+**Saved claim:** link to DATE/claim.md; write it before production edits
+
 ## Evidence
 
 - Baseline: exact command, inputs, source reference, result
@@ -16,6 +18,13 @@
 - Relevant existing acceptance checks and results
 - Measurements/variability, output equivalence, and tradeoffs where applicable
 - Minimal attached proof artifacts, if needed
+
+## Independent review
+
+- Reproduce: fresh reviewer, exact candidate commit, verdict and evidence
+- Novelty: current upstream and duplicate-work search, verdict and sources
+- Criterion: exact confirmed scope, counterexamples checked and verdict
+- Evidence gate: exact check_run.py command and observed output
 
 ## Publication
 

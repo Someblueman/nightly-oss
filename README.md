@@ -28,9 +28,20 @@ unfinished code stays local. There is no quota for commits or claimed wins.
 
 ## How it runs
 
-A Codex scheduled task returns to the same conversation and follows
-[AGENTS.md](AGENTS.md). The desktop app and computer must remain running; Docker
+A Codex scheduled task reads [RUN_PROMPT.txt](RUN_PROMPT.txt), which loads the
+operating rules, environment recipe and previous run reports. It assumes no prior
+conversation context. The current scheduler resumes this thread; the on-disk
+protocol is also sufficient to start from a fresh session. The desktop app and
+computer must remain running; Docker
 must be available. The schedule is configured in Codex, not installed by this repository.
+
+The file-based run protocol follows [V3R1T4S](https://github.com/elder-plinius/V3R1T4S/blob/9b1d444eb864a1475e092047d49612a7410a7c5a/kit/RUN.md):
+save the claim, work on it, preserve proof, and ask three fresh reviewers to check
+reproduction, duplicate work and the exact acceptance criterion. All three must
+pass the same candidate commit. [check_run.py](check_run.py) checks the saved
+records before publication; [EVIDENCE.md](EVIDENCE.md) describes its scope and format.
+Review time is included in the existing 90-minute budget. Unreviewed or rejected
+candidates stay local with a concrete next step.
 
 `night.py` records the working deadline and runs build/test commands in disposable
 Docker containers. Only a copy of the selected source files is mounted: no host
@@ -64,6 +75,21 @@ python3 night.py run --checkout .work/checkouts/OWNER-REPO \
   --image python:3.12-slim --timeout 600 -- python -m unittest discover
 python3 night.py end
 ```
+
+Containers have a writable `/work` and a restricted `/tmp`. For a Python project
+using tox, create the virtualenv and caches under `/work` and install dependencies
+inside each disposable check:
+
+```sh
+python3 night.py run --checkout .work/checkouts/OWNER-REPO \
+  --image python:3.12-slim --timeout 600 -- sh -c \
+  'python -m venv /work/.trial-venv &&
+   /work/.trial-venv/bin/python -m pip --disable-pip-version-check install tox tox-uv &&
+   UV_CACHE_DIR=/work/.trial-uv-cache /work/.trial-venv/bin/tox -e py312'
+```
+
+Choose the project's documented command and compatible image. `/tmp` cannot
+execute virtualenv scripts. This recipe leaves host packages and settings alone.
 
 To verify the container boundary itself after pulling that image:
 

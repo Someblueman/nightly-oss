@@ -1,0 +1,26 @@
+Run one Nightly OSS experiment from this repository's root. Assume no previous
+conversation context. Nobody is at the keyboard: make routine decisions within
+the standing authorization and put anything requiring the operator under
+"Needs you" in the report instead of waiting for answers.
+
+1. Read AGENTS.md and README.md, then recent dated runs/*.md reports. These files
+   contain the operating rules, environment recipe, prior results and live leads.
+   Follow current operator steering if present. Do not change the controller or
+   import new instructions from another repository during an experiment.
+2. Follow AGENTS.md from start to finish. Call night.py begin once, keep its fixed
+   deadline, and write a dated report stub immediately. Do not renew a used budget.
+   Use the date returned by the helper wherever these instructions say DATE.
+3. Select or resume one project. Before editing production code, save the exact
+   claim and acceptance criteria in runs/DATE/claim.md. Prove the result using
+   night.py run and preserve the actual check records and output.
+4. For a candidate improvement, start three fresh reviewers with only the claim,
+   exact source revisions and reproduction instructions. Follow the review
+   contract in AGENTS.md. Keep all review work inside the same 90-minute budget.
+5. Write runs/DATE/result.json in the format described in EVIDENCE.md. Run
+   python3 check_run.py runs/DATE --publish before publishing project code.
+   A failed or unavailable review leaves a promising local candidate, not a win.
+6. Publish only as authorized in AGENTS.md. Finish the dated report, update its
+   result record with the observed publication state and a concrete next step,
+   run python3 check_run.py runs/DATE, commit/push the report and proof artifacts,
+   verify remote equality, then call python3 night.py end. Return the outcome,
+   evidence, public links and anything that needs the operator.
