@@ -1,0 +1,20 @@
+{
+  "started": "2026-10-15T01:10:38.855220+00:00",
+  "upstream_or_head_commit": "ac5ce55dcb3810dc8a5d2a1cd22219e0ef972756",
+  "source_sha256": "2deca112ae604fb6c5fe29709568f4deabc0261176a8dd65f27c5720ae3c3c4e",
+  "image": {
+    "id": "sha256:d9c68c2c51161e12fd77e4c6320687c9cd86e1af1e3ad6e6cd63ff970641453c",
+    "digests": [
+      "golang@sha256:d9c68c2c51161e12fd77e4c6320687c9cd86e1af1e3ad6e6cd63ff970641453c"
+    ]
+  },
+  "command": [
+    "sh",
+    "-c",
+    "export GOCACHE=/work/.gocache GOPATH=/work/.gopath GOTMPDIR=/work/.gotmp; mkdir -p \"$GOTMPDIR\"; go version; go test -count=1 -run \"^TestIndependentSqueeze\" -v ./..."
+  ],
+  "exit_code": 0,
+  "timeout_seconds": 240,
+  "container_name": "nightly-oss-851d545a20d8",
+  "elapsed_seconds": 5.757
+}

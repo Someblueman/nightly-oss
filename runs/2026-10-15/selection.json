@@ -1,0 +1,70 @@
+{
+  "checked_at": "2026-10-15T01:02:45.747505+00:00",
+  "method": "random.SystemRandom().choice",
+  "pool": [
+    "huandu/xstrings",
+    "olebedev/when",
+    "go-playground/form",
+    "PaesslerAG/gval",
+    "forPelevin/gomoji"
+  ],
+  "selected": "huandu/xstrings",
+  "excluded": {
+    "go-ini/ini": "Contribution guide requires communication on an issue before starting work; no maintainer messages authorized."
+  },
+  "screening": [
+    {
+      "repository": "huandu/xstrings",
+      "revision": "96b69c7949060424ce4778947e3e32112cb7e3d5",
+      "license": "MIT",
+      "last_push_observed": "2026-09-30T04:50:20Z",
+      "test_files": 7,
+      "policy_sources": [
+        "https://github.com/huandu/xstrings/blob/96b69c7949060424ce4778947e3e32112cb7e3d5/CONTRIBUTING.md",
+        "https://github.com/huandu/xstrings/blob/96b69c7949060424ce4778947e3e32112cb7e3d5/README.md"
+      ]
+    },
+    {
+      "repository": "olebedev/when",
+      "revision": "409098d00eaea47152d8832ed50ab0595b9bda44",
+      "license": "Apache-2.0",
+      "last_push_observed": "2026-10-14T07:45:04Z",
+      "test_files": 40,
+      "policy_sources": [
+        "https://github.com/olebedev/when/blob/409098d00eaea47152d8832ed50ab0595b9bda44/README.md"
+      ]
+    },
+    {
+      "repository": "go-playground/form",
+      "revision": "5b6e41f35d5b3c4f3605f0ddcdfba6191c8d76e5",
+      "license": "MIT",
+      "last_push_observed": "2026-09-20T19:45:40Z",
+      "test_files": 6,
+      "policy_sources": [
+        "https://github.com/go-playground/form/blob/5b6e41f35d5b3c4f3605f0ddcdfba6191c8d76e5/.github/CONTRIBUTING.md",
+        "https://github.com/go-playground/form/blob/5b6e41f35d5b3c4f3605f0ddcdfba6191c8d76e5/.github/PULL_REQUEST_TEMPLATE.md",
+        "https://github.com/go-playground/form/blob/5b6e41f35d5b3c4f3605f0ddcdfba6191c8d76e5/README.md"
+      ]
+    },
+    {
+      "repository": "PaesslerAG/gval",
+      "revision": "c622ea2f0e823f41ceff4fd90127e47e038049f1",
+      "license": "BSD-3-Clause",
+      "last_push_observed": "2026-09-13T07:06:57Z",
+      "test_files": 12,
+      "policy_sources": [
+        "https://github.com/PaesslerAG/gval/blob/c622ea2f0e823f41ceff4fd90127e47e038049f1/README.md"
+      ]
+    },
+    {
+      "repository": "forPelevin/gomoji",
+      "revision": "5c41061a5917a743aedaa503d4cdda346f9fd0ba",
+      "license": "MIT",
+      "last_push_observed": "2026-07-26T03:37:03Z",
+      "test_files": 3,
+      "policy_sources": [
+        "https://github.com/forPelevin/gomoji/blob/5c41061a5917a743aedaa503d4cdda346f9fd0ba/README.md"
+      ]
+    }
+  ]
+}

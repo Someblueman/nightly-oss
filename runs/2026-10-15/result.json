@@ -1,0 +1,41 @@
+{
+  "status": "verified",
+  "summary": "Squeeze now preserves original bytes of retained input, including invalid UTF-8. The same focused regression fails on baseline and passes on the candidate; Go 1.26 race/coverage/vet, Go 1.17 tests/vet and all three independent reviews pass.",
+  "upstream": "huandu/xstrings",
+  "baseline_commit": "96b69c7949060424ce4778947e3e32112cb7e3d5",
+  "claim": "claim.md",
+  "publication": {
+    "repository": "Someblueman/xstrings",
+    "parent": "huandu/xstrings",
+    "commit": "ac5ce55dcb3810dc8a5d2a1cd22219e0ef972756",
+    "remote_commit": "ac5ce55dcb3810dc8a5d2a1cd22219e0ef972756",
+    "branch": "nightly/2026-10-15-squeeze-preserve-bytes"
+  },
+  "kind": "bug",
+  "candidate_commit": "ac5ce55dcb3810dc8a5d2a1cd22219e0ef972756",
+  "candidate_source_sha256": "1a1d341af24311a800f7f79c27878374ad9b5c4aba42885452c5311d5b210593",
+  "checks": {
+    "before": {
+      "record": "evidence/before.json",
+      "output": "evidence/before.log",
+      "output_sha256": "df8fca6ef9a0563e430872e19370e19f85b881e9a0990ea511ca673fa7495ff1"
+    },
+    "after": {
+      "record": "evidence/after.json",
+      "output": "evidence/after.log",
+      "output_sha256": "349bea732098d8a1624c1682091e8ec24292aa6119a4ebb1632aa0cdb61ba9ff"
+    },
+    "acceptance": [
+      {
+        "record": "evidence/suite-go126.json",
+        "output": "evidence/suite-go126.log",
+        "output_sha256": "008a85c9b7e8bc1bab927ab82d57a775a392b097e002132c28b6a38af7ec7a0c"
+      },
+      {
+        "record": "evidence/suite-go117.json",
+        "output": "evidence/suite-go117.log",
+        "output_sha256": "7d19bece6a4a0d27736cc50dce9c4404d66dda2776fd10c05088b2f39319abd9"
+      }
+    ]
+  }
+}

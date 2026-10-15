@@ -1,0 +1,49 @@
+go version go1.26.9 linux/arm64
+=== RUN   TestIndependentSqueezeExamples
+=== RUN   TestIndependentSqueezeExamples/selected_before_invalid
+    independent_reproduce_test.go:30: Squeeze(61 61 ff, "a") = 61 ef bf bd; want 61 ff
+=== RUN   TestIndependentSqueezeExamples/no_selected_runes
+    independent_reproduce_test.go:30: Squeeze(61 61 ff fe, "z") = 61 61 ef bf bd ef bf bd; want 61 61 ff fe
+=== RUN   TestIndependentSqueezeExamples/unselected_duplicates
+    independent_reproduce_test.go:30: Squeeze(62 62 ff ff, "a") = 62 62 ef bf bd ef bf bd; want 62 62 ff ff
+=== RUN   TestIndependentSqueezeExamples/invalid_before_selected
+=== RUN   TestIndependentSqueezeExamples/invalid_between_selected
+    independent_reproduce_test.go:30: Squeeze(61 61 ff 61 61, "a") = 61 ef bf bd 61; want 61 ff 61
+=== RUN   TestIndependentSqueezeExamples/invalid_run_selected
+=== RUN   TestIndependentSqueezeExamples/literal_replacement_first
+=== RUN   TestIndependentSqueezeExamples/invalid_replacement_first
+=== RUN   TestIndependentSqueezeExamples/unicode_with_invalid_tail
+    independent_reproduce_test.go:30: Squeeze(c3 a9 c3 a9 e2 82, "é") = c3 a9 ef bf bd ef bf bd; want c3 a9 e2 82
+=== RUN   TestIndependentSqueezeExamples/nul_selected
+    independent_reproduce_test.go:30: Squeeze(00 00 ff, "\x00") = 00 ef bf bd; want 00 ff
+=== RUN   TestIndependentSqueezeExamples/empty_input
+--- FAIL: TestIndependentSqueezeExamples (0.00s)
+    --- FAIL: TestIndependentSqueezeExamples/selected_before_invalid (0.00s)
+    --- FAIL: TestIndependentSqueezeExamples/no_selected_runes (0.00s)
+    --- FAIL: TestIndependentSqueezeExamples/unselected_duplicates (0.00s)
+    --- PASS: TestIndependentSqueezeExamples/invalid_before_selected (0.00s)
+    --- FAIL: TestIndependentSqueezeExamples/invalid_between_selected (0.00s)
+    --- PASS: TestIndependentSqueezeExamples/invalid_run_selected (0.00s)
+    --- PASS: TestIndependentSqueezeExamples/literal_replacement_first (0.00s)
+    --- PASS: TestIndependentSqueezeExamples/invalid_replacement_first (0.00s)
+    --- FAIL: TestIndependentSqueezeExamples/unicode_with_invalid_tail (0.00s)
+    --- FAIL: TestIndependentSqueezeExamples/nul_selected (0.00s)
+    --- PASS: TestIndependentSqueezeExamples/empty_input (0.00s)
+=== RUN   TestIndependentSqueezeLiteralOracle
+    independent_reproduce_test.go:66: input=00 00 00 80 selected=U+0061 got=00 00 00 ef bf bd want=00 00 00 80
+    independent_reproduce_test.go:66: input=00 00 00 80 selected=U+0062 got=00 00 00 ef bf bd want=00 00 00 80
+    independent_reproduce_test.go:66: input=00 00 00 80 selected=U+007A got=00 00 00 ef bf bd want=00 00 00 80
+    independent_reproduce_test.go:66: input=00 00 00 80 selected=U+0000 got=00 ef bf bd want=00 80
+    independent_reproduce_test.go:66: input=00 00 00 80 selected=U+00E9 got=00 00 00 ef bf bd want=00 00 00 80
+    independent_reproduce_test.go:66: input=00 00 00 80 selected=U+FFFD got=00 00 00 ef bf bd want=00 00 00 80
+    independent_reproduce_test.go:66: input=00 00 00 82 selected=U+0061 got=00 00 00 ef bf bd want=00 00 00 82
+    independent_reproduce_test.go:66: input=00 00 00 82 selected=U+0062 got=00 00 00 ef bf bd want=00 00 00 82
+    independent_reproduce_test.go:66: input=00 00 00 82 selected=U+007A got=00 00 00 ef bf bd want=00 00 00 82
+    independent_reproduce_test.go:66: input=00 00 00 82 selected=U+0000 got=00 ef bf bd want=00 82
+    independent_reproduce_test.go:66: input=00 00 00 82 selected=U+00E9 got=00 00 00 ef bf bd want=00 00 00 82
+    independent_reproduce_test.go:66: input=00 00 00 82 selected=U+FFFD got=00 00 00 ef bf bd want=00 00 00 82
+    independent_reproduce_test.go:77: checked=185646 mismatches=118652
+--- FAIL: TestIndependentSqueezeLiteralOracle (0.03s)
+FAIL
+FAIL	github.com/huandu/xstrings	0.036s
+FAIL

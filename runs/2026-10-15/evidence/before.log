@@ -1,0 +1,9 @@
+go version go1.26.9 linux/arm64
+=== RUN   TestSqueeze
+    util_test.go:22: case fails. [case:ÿþ Â¶ a]
+        should => "\xff\xfe"
+        actual => "\xffï¿½"
+--- FAIL: TestSqueeze (0.00s)
+FAIL
+FAIL	github.com/huandu/xstrings	0.008s
+FAIL

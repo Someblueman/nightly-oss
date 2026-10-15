@@ -1,0 +1,30 @@
+go version go1.26.9 linux/arm64
+=== RUN   TestIndependentSqueezeExamples
+=== RUN   TestIndependentSqueezeExamples/selected_before_invalid
+=== RUN   TestIndependentSqueezeExamples/no_selected_runes
+=== RUN   TestIndependentSqueezeExamples/unselected_duplicates
+=== RUN   TestIndependentSqueezeExamples/invalid_before_selected
+=== RUN   TestIndependentSqueezeExamples/invalid_between_selected
+=== RUN   TestIndependentSqueezeExamples/invalid_run_selected
+=== RUN   TestIndependentSqueezeExamples/literal_replacement_first
+=== RUN   TestIndependentSqueezeExamples/invalid_replacement_first
+=== RUN   TestIndependentSqueezeExamples/unicode_with_invalid_tail
+=== RUN   TestIndependentSqueezeExamples/nul_selected
+=== RUN   TestIndependentSqueezeExamples/empty_input
+--- PASS: TestIndependentSqueezeExamples (0.00s)
+    --- PASS: TestIndependentSqueezeExamples/selected_before_invalid (0.00s)
+    --- PASS: TestIndependentSqueezeExamples/no_selected_runes (0.00s)
+    --- PASS: TestIndependentSqueezeExamples/unselected_duplicates (0.00s)
+    --- PASS: TestIndependentSqueezeExamples/invalid_before_selected (0.00s)
+    --- PASS: TestIndependentSqueezeExamples/invalid_between_selected (0.00s)
+    --- PASS: TestIndependentSqueezeExamples/invalid_run_selected (0.00s)
+    --- PASS: TestIndependentSqueezeExamples/literal_replacement_first (0.00s)
+    --- PASS: TestIndependentSqueezeExamples/invalid_replacement_first (0.00s)
+    --- PASS: TestIndependentSqueezeExamples/unicode_with_invalid_tail (0.00s)
+    --- PASS: TestIndependentSqueezeExamples/nul_selected (0.00s)
+    --- PASS: TestIndependentSqueezeExamples/empty_input (0.00s)
+=== RUN   TestIndependentSqueezeLiteralOracle
+    independent_reproduce_test.go:77: checked=185646 mismatches=0
+--- PASS: TestIndependentSqueezeLiteralOracle (0.03s)
+PASS
+ok  	github.com/huandu/xstrings	0.036s

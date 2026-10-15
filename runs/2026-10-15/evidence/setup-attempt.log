@@ -1,0 +1,5 @@
+go version go1.26.9 linux/arm64
+Linux aarch64
+fork/exec /tmp/go-build4027882456/b001/xstrings.test: permission denied
+FAIL	github.com/huandu/xstrings	0.000s
+FAIL

@@ -1,0 +1,8 @@
+go version go1.26.9 linux/arm64
+=== RUN   TestCriterionSqueezeBytePreservation
+    criterion_test.go:89: checked 1800495 input/pattern pairs against a byte-span oracle
+--- PASS: TestCriterionSqueezeBytePreservation (0.31s)
+=== RUN   TestSqueeze
+--- PASS: TestSqueeze (0.00s)
+PASS
+ok  	github.com/huandu/xstrings	0.315s

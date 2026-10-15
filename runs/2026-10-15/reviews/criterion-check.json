@@ -1,0 +1,20 @@
+{
+  "started": "2026-10-15T01:13:25.459974+00:00",
+  "upstream_or_head_commit": "ac5ce55dcb3810dc8a5d2a1cd22219e0ef972756",
+  "source_sha256": "7c86ccbe09b608a1b60896bc509fe60f846dc0b911beaaf2fd00a926980febba",
+  "image": {
+    "id": "sha256:d9c68c2c51161e12fd77e4c6320687c9cd86e1af1e3ad6e6cd63ff970641453c",
+    "digests": [
+      "golang@sha256:d9c68c2c51161e12fd77e4c6320687c9cd86e1af1e3ad6e6cd63ff970641453c"
+    ]
+  },
+  "command": [
+    "sh",
+    "-c",
+    "set -eu\nexport GOCACHE=/work/.gocache GOPATH=/work/.gopath GOTMPDIR=/work/.gotmp\nmkdir -p \"$GOTMPDIR\"\ngo version\ngo test -count=1 -run \"^Test(CriterionSqueezeBytePreservation|Squeeze)$\" -v ./...\ntest -z \"$(gofmt -l criterion_test.go)\""
+  ],
+  "exit_code": 0,
+  "timeout_seconds": 240,
+  "container_name": "nightly-oss-7b33043a7ed6",
+  "elapsed_seconds": 5.984
+}

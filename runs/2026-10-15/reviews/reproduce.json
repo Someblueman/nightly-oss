@@ -1,0 +1,24 @@
+{
+  "role": "reproduce",
+  "context": "fresh agent",
+  "candidate_commit": "ac5ce55dcb3810dc8a5d2a1cd22219e0ef972756",
+  "pass": true,
+  "summary": "Independently reproduced byte corruption on the baseline and byte preservation on the exact candidate using an unchanged checker derived from claim.md before reading implementation or tests. The candidate passed 11 explicit examples and 185646 short-input literal-selector oracle comparisons; the baseline failed 6 examples and 118652 oracle comparisons.",
+  "evidence": [
+    "Checker: reviews/reproduce_test.go (SHA-256 72c31c59b87c3ac65baa0ad60365df234a74f305d5d0e9c0130d96a32a29be3a). Saved before source/patch/test inspection; verified byte-identical in both retained helper source snapshots.",
+    "Baseline production revision: 96b69c7949060424ce4778947e3e32112cb7e3d5. Record reviews/reproduce-before.json; output reviews/reproduce-before.log. Exit 1. Squeeze(61 61 ff, \"a\") returned 61 ef bf bd instead of 61 ff; both no-matching-pattern examples also failed.",
+    "Candidate revision: ac5ce55dcb3810dc8a5d2a1cd22219e0ef972756. Record reviews/reproduce-after.json; output reviews/reproduce-after.log. Exit 0. All 11 examples and all 185646 oracle comparisons passed.",
+    "Both records use identical command and image ID sha256:d9c68c2c51161e12fd77e4c6320687c9cd86e1af1e3ad6e6cd63ff970641453c; stdout reports Go 1.26.9 linux/arm64.",
+    "Exact container commands are the command arrays in reviews/reproduce-before.json and reviews/reproduce-after.json. Both were invoked through night.py run --image golang:1.26-bookworm --timeout 240 against the reviewer clone. An audit confirmed that decoded shell command strings contain zero literal backslashes; quote escapes in JSON are serialization only. Both copied records and logs are byte-identical to the original helper artifacts.",
+    "The independent oracle decodes adjacent runes, suppresses selected duplicates, and appends the original bytes for retained segments. Inputs include every byte string of length 0 through 4 over 13 selected ASCII, NUL, UTF-8 lead/continuation, and invalid bytes, with six literal selectors: a, b, z, NUL, e-acute, and U+FFFD.",
+    "Explicit examples also cover invalid bytes before/between squeezed runs, truncated UTF-8 tails, valid e-acute, literal U+FFFD adjacent to invalid bytes, selected invalid RuneError runs, NUL, and empty input.",
+    "After deriving and running the checker, inspection of the production diff found unchanged decoding/matching decisions and the two retained-rune writes changed from WriteRune(r) to WriteString(str[:size]).",
+    "Scope limit: this review independently verifies the supplied byte-preservation bug for the stated examples and bounded literal-selector input space. It does not independently exhaust range/complement pattern syntax or empty-pattern behavior, rerun the full acceptance suite, establish performance, or claim universal correctness."
+  ],
+  "checked_at_utc": "2026-10-15T01:11:52.463267+00:00",
+  "checker_sha256": "72c31c59b87c3ac65baa0ad60365df234a74f305d5d0e9c0130d96a32a29be3a",
+  "records": {
+    "before": "reviews/reproduce-before.json",
+    "after": "reviews/reproduce-after.json"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "started": "2026-10-15T01:07:34.488306+00:00",
+  "upstream_or_head_commit": "96b69c7949060424ce4778947e3e32112cb7e3d5",
+  "source_sha256": "1a1d341af24311a800f7f79c27878374ad9b5c4aba42885452c5311d5b210593",
+  "image": {
+    "id": "sha256:87262e4a4c7db56158a80a18fefdc4fee5accc41b59cde821e691d05541bbb18",
+    "digests": [
+      "golang@sha256:87262e4a4c7db56158a80a18fefdc4fee5accc41b59cde821e691d05541bbb18"
+    ]
+  },
+  "command": [
+    "sh",
+    "-c",
+    "set -e; export GOCACHE=/work/.gocache GOPATH=/work/.gopath GOTMPDIR=/work/.gotmp; mkdir -p \"$GOTMPDIR\"; go version; go test -count=1 -v -coverprofile=/work/coverage.out ./...; go vet ./..."
+  ],
+  "exit_code": 0,
+  "timeout_seconds": 240,
+  "container_name": "nightly-oss-943b8c4266b8",
+  "elapsed_seconds": 2.03
+}
