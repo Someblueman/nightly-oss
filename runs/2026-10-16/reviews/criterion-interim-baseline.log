@@ -1,0 +1,15 @@
+/work/src/core/streamProcessor.js:405
+            throw CsvFormatError.mismatchedQuotes('row');
+            ^
+
+ReferenceError: CsvFormatError is not defined
+    at StreamProcessor._splitWithConfig (/work/src/core/streamProcessor.js:405:13)
+    at StreamProcessor._splitRecord (/work/src/core/streamProcessor.js:362:25)
+    at StreamProcessor._processDataRecord (/work/src/core/streamProcessor.js:328:33)
+    at StreamProcessor._processRecord (/work/src/core/streamProcessor.js:306:18)
+    at StreamProcessor._processCompleteRecords (/work/src/core/streamProcessor.js:273:18)
+    at StreamProcessor.processChunk (/work/src/core/streamProcessor.js:70:14)
+    at processChunk (/work/src/core/streamProcessor.js:104:34)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+
+Node.js v24.22.0

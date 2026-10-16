@@ -1,0 +1,49 @@
+{
+  "status": "verified",
+  "summary": "Quoted CSV records now parse across stream chunks. The same 18-case regression fails before and passes after; all 195 tests, lint and API docs pass on Node 22 and 24, and three fresh independent reviewers pass the exact candidate. A separate pre-existing CRLF/header-offset limitation remains.",
+  "kind": "bug",
+  "upstream": "iuccio/csvToJson",
+  "baseline_commit": "ad47fe16eef8d7644cca0087db91ff5766235d3b",
+  "claim": "claim.md",
+  "publication": {
+    "repository": "Someblueman/csvToJson",
+    "parent": "iuccio/csvToJson",
+    "commit": "31e6cda09bb69d462c3ab9d66fa4157b430c1b8d",
+    "remote_commit": "31e6cda09bb69d462c3ab9d66fa4157b430c1b8d",
+    "branch": "nightly/2026-10-16-stream-quoted-chunks"
+  },
+  "candidate_commit": "31e6cda09bb69d462c3ab9d66fa4157b430c1b8d",
+  "candidate_source_sha256": "a1e0a094569aec5ed8e701fd7451e0f92b6bd761456bb27533dc3e76afe5e60f",
+  "checks": {
+    "before": {
+      "record": "evidence/before.json",
+      "output": "evidence/before.log",
+      "output_sha256": "2c1751f9af37e5a9ac4ed46c3292f53e90cc336f9840068cea51a8df4313b9e1"
+    },
+    "after": {
+      "record": "evidence/after.json",
+      "output": "evidence/after.log",
+      "output_sha256": "a7fe7a12c02f27599017f7a3eb680491468113192c57e6a0df50f58919966730"
+    },
+    "acceptance": [
+      {
+        "record": "evidence/suite-node24.json",
+        "output": "evidence/suite-node24.log",
+        "output_sha256": "2357d5e6b339f907e359f937a4e9ca24a3409cbb4da7d910d22d88cbb4110492"
+      },
+      {
+        "record": "evidence/suite-node22.json",
+        "output": "evidence/suite-node22.log",
+        "output_sha256": "98d7b15a5609a26628cb30de4f21119908ccf1d8b59c97d6e7fcdbcdebca4c15"
+      }
+    ]
+  },
+  "next_step": {
+    "project": "iuccio/csvToJson",
+    "branch": "nightly/2026-10-16-stream-quoted-chunks",
+    "current_commit": "31e6cda09bb69d462c3ab9d66fa4157b430c1b8d",
+    "experiment": "Refresh current upstream and contribution policies, then turn the independently reproduced split-CRLF/nonzero-header-index observation into a regression with LF and unsplit CRLF controls. Test retaining a trailing CR across chunks while preserving blank-record behavior.",
+    "evidence": "reviews/criterion-check.cjs and reviews/criterion-before.log/criterion-after.log",
+    "consecutive_nights_without_new_evidence": 0
+  }
+}

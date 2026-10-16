@@ -1,0 +1,95 @@
+{
+  "selected_at_utc": "2026-10-16T01:02:36.504195+00:00",
+  "method": "random.SystemRandom().choice; one draw from five eligible candidates",
+  "scope": "Random within a filtered pool, not a uniform sample of GitHub",
+  "searches": [
+    "language:JavaScript topic:parser stars:100..5000 size:<4000 pushed:>2026-04-01 archived:false",
+    "language:JavaScript topic:utility stars:100..5000 size:<4000 pushed:>2026-04-01 archived:false"
+  ],
+  "pool": [
+    {
+      "repository": "nfriedly/set-cookie-parser",
+      "revision": "5c45b128dad3e359fca09d54cdb7fb000658d75a",
+      "license": "MIT",
+      "pushed_at": "2026-10-08T15:17:21Z",
+      "tests": "npm run build && npm run lint && mocha && npm run typecheck",
+      "policy_sources": [
+        "https://github.com/nfriedly/set-cookie-parser/blob/5c45b128dad3e359fca09d54cdb7fb000658d75a/LICENSE",
+        "https://github.com/nfriedly/set-cookie-parser/blob/5c45b128dad3e359fca09d54cdb7fb000658d75a/README.md",
+        "https://github.com/nfriedly/set-cookie-parser/blob/5c45b128dad3e359fca09d54cdb7fb000658d75a/package.json"
+      ],
+      "owner_defaults": "No public owner .github repository found (HTTP 404)",
+      "ai_policy": "No explicit AI or automation contribution policy found in screened documents; no explicit acceptance claimed."
+    },
+    {
+      "repository": "iuccio/csvToJson",
+      "revision": "ad47fe16eef8d7644cca0087db91ff5766235d3b",
+      "license": "MIT",
+      "pushed_at": "2026-10-14T05:50:12Z",
+      "tests": "jest",
+      "policy_sources": [
+        "https://github.com/iuccio/csvToJson/blob/ad47fe16eef8d7644cca0087db91ff5766235d3b/.github/ISSUE_TEMPLATE/bug_report.md",
+        "https://github.com/iuccio/csvToJson/blob/ad47fe16eef8d7644cca0087db91ff5766235d3b/.github/ISSUE_TEMPLATE/feature_request.md",
+        "https://github.com/iuccio/csvToJson/blob/ad47fe16eef8d7644cca0087db91ff5766235d3b/.github/PULL_REQUEST_TEMPLATE.md",
+        "https://github.com/iuccio/csvToJson/blob/ad47fe16eef8d7644cca0087db91ff5766235d3b/CODE_OF_CONDUCT.md",
+        "https://github.com/iuccio/csvToJson/blob/ad47fe16eef8d7644cca0087db91ff5766235d3b/CONTRIBUTING.md",
+        "https://github.com/iuccio/csvToJson/blob/ad47fe16eef8d7644cca0087db91ff5766235d3b/LICENSE",
+        "https://github.com/iuccio/csvToJson/blob/ad47fe16eef8d7644cca0087db91ff5766235d3b/README.md",
+        "https://github.com/iuccio/csvToJson/blob/ad47fe16eef8d7644cca0087db91ff5766235d3b/SECURITY.md",
+        "https://github.com/iuccio/csvToJson/blob/ad47fe16eef8d7644cca0087db91ff5766235d3b/docs/README.md",
+        "https://github.com/iuccio/csvToJson/blob/ad47fe16eef8d7644cca0087db91ff5766235d3b/package.json"
+      ],
+      "owner_defaults": "No public owner .github repository found (HTTP 404)",
+      "ai_policy": "No explicit AI or automation contribution policy found in screened documents; no explicit acceptance claimed."
+    },
+    {
+      "repository": "rgrove/parse-xml",
+      "revision": "24e617c56c10c49b4e3c7c8d3918648f7cb3c526",
+      "license": "ISC",
+      "pushed_at": "2026-09-01T03:52:49Z",
+      "tests": "pnpm run build:js && c8 mocha && pnpm run test:types",
+      "policy_sources": [
+        "https://github.com/rgrove/parse-xml/blob/24e617c56c10c49b4e3c7c8d3918648f7cb3c526/LICENSE",
+        "https://github.com/rgrove/parse-xml/blob/24e617c56c10c49b4e3c7c8d3918648f7cb3c526/README.md",
+        "https://github.com/rgrove/parse-xml/blob/24e617c56c10c49b4e3c7c8d3918648f7cb3c526/package.json"
+      ],
+      "owner_defaults": "No public owner .github repository found (HTTP 404)",
+      "ai_policy": "No explicit AI or automation contribution policy found in screened documents; no explicit acceptance claimed."
+    },
+    {
+      "repository": "crisp-oss/email-reply-parser",
+      "revision": "340eff4458b90597e240be1c5d836db10a7e777b",
+      "license": "MIT",
+      "pushed_at": "2026-07-16T12:49:20Z",
+      "tests": "npm run unit && npm run lint",
+      "policy_sources": [
+        "https://github.com/crisp-oss/email-reply-parser/blob/340eff4458b90597e240be1c5d836db10a7e777b/LICENSE",
+        "https://github.com/crisp-oss/email-reply-parser/blob/340eff4458b90597e240be1c5d836db10a7e777b/README.md",
+        "https://github.com/crisp-oss/email-reply-parser/blob/340eff4458b90597e240be1c5d836db10a7e777b/package.json"
+      ],
+      "owner_defaults": "No public owner .github repository found (HTTP 404)",
+      "ai_policy": "No explicit AI or automation contribution policy found in screened documents; no explicit acceptance claimed."
+    },
+    {
+      "repository": "crcn/sift.js",
+      "revision": "00b40f1799608e80e0cbb9b43254afa636dc8ef5",
+      "license": "MIT",
+      "pushed_at": "2026-10-08T18:54:11Z",
+      "tests": "npm run test:spec && npm run test:types",
+      "policy_sources": [
+        "https://github.com/crcn/sift.js/blob/00b40f1799608e80e0cbb9b43254afa636dc8ef5/README.md",
+        "https://github.com/crcn/sift.js/blob/00b40f1799608e80e0cbb9b43254afa636dc8ef5/package.json",
+        "https://github.com/crcn/sift.js/blob/00b40f1799608e80e0cbb9b43254afa636dc8ef5/MIT-LICENSE.txt"
+      ],
+      "owner_defaults": "No public owner .github repository found (HTTP 404)",
+      "ai_policy": "No explicit AI or automation contribution policy found in screened documents; no explicit acceptance claimed."
+    }
+  ],
+  "selected": "iuccio/csvToJson",
+  "excluded": [
+    {
+      "repository": "dy/subscript",
+      "reason": "Prefiltered for a more complex browser/end-to-end test setup; not included in the draw."
+    }
+  ]
+}

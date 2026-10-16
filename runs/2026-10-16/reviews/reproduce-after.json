@@ -1,0 +1,19 @@
+{
+  "started": "2026-10-16T01:12:51.329879+00:00",
+  "upstream_or_head_commit": "31e6cda09bb69d462c3ab9d66fa4157b430c1b8d",
+  "source_sha256": "0e3c460296d66ce01f1daed66270b45b31dba24c2d8cc16f5a6526d185d034e0",
+  "image": {
+    "id": "sha256:14078204b6bb268c107ceff6d3c43f45a888105e5c2b18b14c32b3409d93a1b0",
+    "digests": [
+      "node@sha256:14078204b6bb268c107ceff6d3c43f45a888105e5c2b18b14c32b3409d93a1b0"
+    ]
+  },
+  "command": [
+    "node",
+    "reproduce-checker.cjs"
+  ],
+  "exit_code": 0,
+  "timeout_seconds": 240,
+  "container_name": "nightly-oss-6e9ddc21f9be",
+  "elapsed_seconds": 0.943
+}

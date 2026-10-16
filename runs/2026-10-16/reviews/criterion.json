@@ -1,0 +1,51 @@
+{
+  "role": "criterion",
+  "context": "fresh agent",
+  "candidate_commit": "31e6cda09bb69d462c3ab9d66fa4157b430c1b8d",
+  "pass": true,
+  "summary": "The complete diff corrects the initial quote state for rescans of a retained incomplete record without changing public signatures or row conversion. The independent final checker passed 9,349 candidate API cases versus 5,337 baseline failures. No candidate regression was found in the checked scope; an existing CRLF/header-offset limitation remains outside the quoted-record fix.",
+  "evidence": [
+    "Reviewed root AGENTS.md, EVIDENCE.md and claim.md; did not read the dated report, result record, author reasoning, or other reviews. Used a separate HTTPS clone, fetched the exact candidate, and verified tracked source remained unchanged.",
+    "Inspected git diff ad47fe16eef8d7644cca0087db91ff5766235d3b 31e6cda09bb69d462c3ab9d66fa4157b430c1b8d in full, plus the complete StreamProcessor and its public Node/browser callers, configuration and type-conversion contracts. git diff --check passed.",
+    "The residual buffer starts at a record boundary and retains its opening quote. Rescanning it must start outside quotes. Completed records are emitted only outside quotes, so this initialization is valid for every retained buffer; final quote state is still saved for end-of-stream validation.",
+    "Independent checker: reviews/criterion-check.cjs. Exact container command on both revisions: node criterion-check.cjs. Invocation: python3 night.py run --checkout .work/checkouts/iuccio-csvToJson-review-criterion-20261016 --image node:24-bookworm --timeout 120 -- node criterion-check.cjs. No runtime dependencies are required.",
+    "Final baseline: reviews/criterion-before.json and .log; ad47fe16eef8d7644cca0087db91ff5766235d3b, Node v24.22.0, image sha256:14078204b6bb268c107ceff6d3c43f45a888105e5c2b18b14c32b3409d93a1b0, exit 1, 5,337 failures among 9,349 checks. Final candidate: reviews/criterion-after.json and .log; exact requested commit, same checker, command and image, exit 0, zero failures.",
+    "The 21-case corpus covers every two-part split plus one-character chunks, empty chunks and interleaved empty chunks. It uses quoted headers and fields; empty values; one and two literal quotes; embedded LF, CR and CRLF; comma, semicolon and tab delimiters; with and without terminal newlines; Node text, WHATWG text, ASCII byte streams and browser file callbacks. It separately covers decoded Unicode text, unquoted input, typed values preserving leading zeroes, header trimming, ignored columns, subarrays, row mapping/filtering with original row indices, and an LF preamble/header offset.",
+    "The callback checker verifies collected rows, one onComplete call, cumulative processed counts and final totals where supplied. Browser APIs run through Node WHATWG ReadableStream/File implementations; this is not a real-browser rendering or browser-bundle check.",
+    "Counterexample checked on both baseline and candidate: indexHeader(1) with preamble\\r\\n\"id\",note\\r\\n1,ok\\r\\n returns [{\"id\":\"1\",\"note\":\"ok\"}] unsplit but [] when the first CRLF is split between chunks. The record separator is counted twice before the header. This is pre-existing and not fixed; do not advertise universal chunk invariance or full CSV conformance.",
+    "Initial checker attempts are retained unchanged as criterion-first-*.json/.log and criterion-interim-*.json/.log, with criterion-initial-check.cjs and criterion-interim-check.cjs. The initial oracle incorrectly expected 01 to become numeric 1, contrary to the existing leading-zero preservation rule. An onError callback that rethrew also prevented baseline completion. The final checker corrects the expected value to string 01 and captures callback errors while retaining rejection/assertion checks. No production or candidate test edits were made."
+  ],
+  "confirmed_scope": "For the exercised valid CSV corpus with quote support enabled, the candidate removes reuse of end-of-chunk quote state when rescanning the retained record. Node decoded-text streams, WHATWG decoded-text/ASCII-byte streams and browser file callbacks retain expected rows when quoted headers or values, doubled quotes, or embedded CR/LF/CRLF are split across chunks, including a final record without a newline. Checked delimiter, conversion, mapping, filtering, subarray, ignored-column and header-trimming behavior is preserved. This supports the localized quote-state claim, not universal CSV chunk invariance: the existing split-CRLF record separator before a nonzero header offset remains; split multibyte byte decoding, malformed-CSV diagnostics, actual browser bundles and performance are not established.",
+  "artifacts": [
+    {
+      "record": "criterion-first-candidate.json",
+      "output": "criterion-first-candidate.log",
+      "output_sha256": "da563a04e288b48a29854676278466084ae7f136a23bbf40ef5a3a1925d94564"
+    },
+    {
+      "record": "criterion-first-baseline.json",
+      "output": "criterion-first-baseline.log",
+      "output_sha256": "8116fced7864178c29a82b8c5420246080be2e7c898507b90659b30fd9e8c973"
+    },
+    {
+      "record": "criterion-interim-baseline.json",
+      "output": "criterion-interim-baseline.log",
+      "output_sha256": "8116fced7864178c29a82b8c5420246080be2e7c898507b90659b30fd9e8c973"
+    },
+    {
+      "record": "criterion-interim-candidate.json",
+      "output": "criterion-interim-candidate.log",
+      "output_sha256": "3447b0b0aceb2a83e7462e584bd29d5e25c6ece8339490c0f4455b4a19f4ed02"
+    },
+    {
+      "record": "criterion-before.json",
+      "output": "criterion-before.log",
+      "output_sha256": "ac8bca7f11e971178a92cc148e78de4424f6c9fe9e12ba76b55b29b12f39f2d4"
+    },
+    {
+      "record": "criterion-after.json",
+      "output": "criterion-after.log",
+      "output_sha256": "3447b0b0aceb2a83e7462e584bd29d5e25c6ece8339490c0f4455b4a19f4ed02"
+    }
+  ]
+}

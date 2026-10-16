@@ -1,0 +1,33 @@
+{
+  "role": "reproduce",
+  "context": "fresh agent",
+  "candidate_commit": "31e6cda09bb69d462c3ab9d66fa4157b430c1b8d",
+  "pass": true,
+  "summary": "An independently derived public-API checker failed 303 of 606 checks on baseline and passed all 606 on the exact candidate, using the same checker and immutable Node image. Unsplit controls passed in all 12 case/API combinations.",
+  "evidence": [
+    "Derived and saved reviews/reproduce-checker.cjs from claim.md and the baseline public README, docs/ASYNC.md and docs/BROWSER.md before reading candidate production code or tests. The checker was saved before either execution.",
+    "Baseline public API documentation: https://github.com/iuccio/csvToJson/blob/ad47fe16eef8d7644cca0087db91ff5766235d3b/README.md ; https://github.com/iuccio/csvToJson/blob/ad47fe16eef8d7644cca0087db91ff5766235d3b/docs/ASYNC.md ; https://github.com/iuccio/csvToJson/blob/ad47fe16eef8d7644cca0087db91ff5766235d3b/docs/BROWSER.md .",
+    "Cloned public upstream via HTTPS to the separate reproduction checkout. Baseline ad47fe16eef8d7644cca0087db91ff5766235d3b was checked detached. Candidate 31e6cda09bb69d462c3ab9d66fa4157b430c1b8d was fetched from the primary checkout and checked detached. Only the independent checker was untracked in the review checkout.",
+    "Identical command at both revisions: python3 night.py run --checkout .work/checkouts/iuccio-csvToJson-review-reproduce-20261016 --image node:24-bookworm --timeout 240 -- node reproduce-checker.cjs . Both records identify image sha256:14078204b6bb268c107ceff6d3c43f45a888105e5c2b18b14c32b3409d93a1b0 and logs identify Node v24.22.0. No dependency installation was needed.",
+    "606 checks comprise every single two-part string split, an unsplit control and one-character chunks for four independently chosen CSV examples, across Node getJsonFromStreamAsync, browser getJsonFromStreamAsync using ReadableStream, and browser streamed file callbacks using controlled ASCII byte chunks.",
+    "The corpus includes the exact literal-claim example, doubled quote escapes and an embedded delimiter, a quoted header and multiline CRLF field, and semicolon-delimited quoted records with value conversion, row mapping and no terminal newline. Callback rows and completion rows must each equal hard-coded expected objects.",
+    "Baseline exit 1: 303 failures; retained error examples report CsvFormatError is not defined when splitting valid quoted records. All unsplit controls pass. Candidate exit 0: 606 passes, zero failures. See unmodified reviews/reproduce-before.json, reviews/reproduce-before.log, reviews/reproduce-after.json and reviews/reproduce-after.log.",
+    "After completing both runs, inspected the production and regression-test diff. The production change resets quote state when rescanning the retained whole incomplete record. This is consistent with the independently observed before/after behavior.",
+    "Scope limit: this is deterministic public API reproduction in Node 24 with its built-in ReadableStream and File implementations. It does not establish cross-browser engine behavior, arbitrary malformed CSV handling, binary UTF-8 split decoding, performance, or universal parser correctness. Full project acceptance is the primary agent responsibility."
+  ],
+  "checks": {
+    "before": {
+      "record": "reviews/reproduce-before.json",
+      "output": "reviews/reproduce-before.log",
+      "output_sha256": "f67433b16551ffe5b5bc45a12c585e79428f9763fff8e5ba0dcaf479eb6764e1",
+      "source_sha256": "0f0e57d912e2401d8bf30d31f52c9e7c167572367453c6be781062c913e6b721"
+    },
+    "after": {
+      "record": "reviews/reproduce-after.json",
+      "output": "reviews/reproduce-after.log",
+      "output_sha256": "1a3bc6db3d69fa6f470ad9e6dff5c8a1fef951e400e56c05439bb6627a6f97d2",
+      "source_sha256": "0e3c460296d66ce01f1daed66270b45b31dba24c2d8cc16f5a6526d185d034e0"
+    }
+  },
+  "checker_sha256": "fd707527dca20f26a0bafb842e527216825de9fb80ce1028c6620c9584d9381b"
+}

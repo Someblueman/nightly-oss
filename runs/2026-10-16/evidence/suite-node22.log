@@ -1,0 +1,73 @@
+v22.23.3
+npm warn deprecated whatwg-encoding@2.0.0: Use @exodus/bytes instead for a more spec-conformant and faster implementation
+npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+npm warn deprecated lodash.isequal@4.5.0: This package is deprecated. Use require('node:util').isDeepStrictEqual instead.
+npm warn deprecated lodash.get@4.4.2: This package is deprecated. Use the optional chaining (?.) operator instead.
+npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+npm warn deprecated glob@7.2.3: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+npm warn deprecated glob@7.2.3: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+npm warn deprecated glob@10.5.0: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+npm warn deprecated core-js@2.6.12: core-js@<3.23.3 is no longer maintained and not recommended for usage due to the number of issues. Because of the V8 engine whims, feature detection in old core-js versions could cause a slowdown up to 100x even if nothing is polyfilled. Some versions have web compatibility issues. Please, upgrade your dependencies to the actual version of core-js.
+
+added 719 packages in 7s
+npm notice
+npm notice New major version of npm available! 10.9.9 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice
+
+> convert-csv-to-json@4.90.0 lint
+> eslint .
+
+
+> convert-csv-to-json@4.90.0 test
+> jest --runInBand
+
+PASS test/browserApi.spec.js
+PASS test/fileUtils.spec.js
+PASS test/index.spec.js
+PASS test/csvToJsonAsync.spec.js
+PASS test/stringUtils.spec.js
+PASS test/rfc4180.spec.js
+PASS test/mapRows.spec.js
+PASS test/mapRows-async.spec.js
+PASS test/comma-delimiter.spec.js
+PASS test/stream-chunks.spec.js
+PASS test/ignoreColumnIndexes.spec.js
+PASS test/index-quoted-fields.spec.js
+PASS test/encoding.spec.js
+PASS test/ts-async.spec.ts
+PASS test/ts-browser.spec.ts
+PASS test/ts-sync.spec.ts
+PASS test/csvString.spec.js
+---------------------|---------|----------|---------|---------|------------------------------------------------------------------------------------------------------
+File                 | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s                                                                                    
+---------------------|---------|----------|---------|---------|------------------------------------------------------------------------------------------------------
+All files            |    82.5 |    71.39 |   84.04 |   83.48 |                                                                                                      
+ work                |   86.66 |    57.14 |   86.36 |   84.93 |                                                                                                      
+  index.js           |   86.66 |    57.14 |   86.36 |   84.93 | 137,232-238,256,299,310,346,376                                                                      
+ work/src            |   92.43 |    84.53 |    85.1 |   92.55 |                                                                                                      
+  browserApi.js      |   93.68 |    79.62 |   89.47 |   94.44 | 34,114,130,152,158                                                                                   
+  csvToJson.js       |   92.54 |    84.76 |      85 |   92.35 | 51,82-102,219,239,384,399,438                                                                        
+  csvToJsonAsync.js  |   88.57 |    95.45 |      75 |   88.57 | 33-46                                                                                                
+ work/src/core       |   74.01 |    58.15 |   79.36 |   76.75 |                                                                                                      
+  configurable.js    |   96.42 |    41.66 |     100 |   96.42 | 66                                                                                                   
+  errors.js          |   46.66 |     9.09 |   52.94 |   51.21 | 29-52,130-185,251-265                                                                                
+  parserConfig.js    |     100 |    66.66 |     100 |     100 | 21                                                                                                   
+  streamProcessor.js |    75.2 |    66.66 |   85.29 |   77.68 | 63,83-86,108-109,116-147,190-191,210,218-219,226,235,240,285,376,405,422,429,449,461-473,556,562,578 
+ work/src/util       |   77.27 |    77.58 |   88.23 |   77.27 |                                                                                                      
+  fileUtils.js       |   62.74 |    53.84 |   80.95 |   62.74 | 36,135-153,188,208-214                                                                               
+  jsonUtils.js       |      80 |      100 |     100 |      80 | 20                                                                                                   
+  stringUtils.js     |     100 |    96.87 |     100 |     100 | 161                                                                                                  
+---------------------|---------|----------|---------|---------|------------------------------------------------------------------------------------------------------
+
+Test Suites: 17 passed, 17 total
+Tests:       195 passed, 195 total
+Snapshots:   0 total
+Time:        1.883 s
+Ran all test suites.
+
+> convert-csv-to-json@4.90.0 docs:api
+> jsdoc -c jsdoc.json -d demo/api
+

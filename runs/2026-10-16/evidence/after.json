@@ -1,0 +1,20 @@
+{
+  "started": "2026-10-16T01:10:12.938988+00:00",
+  "upstream_or_head_commit": "31e6cda09bb69d462c3ab9d66fa4157b430c1b8d",
+  "source_sha256": "a1e0a094569aec5ed8e701fd7451e0f92b6bd761456bb27533dc3e76afe5e60f",
+  "image": {
+    "id": "sha256:14078204b6bb268c107ceff6d3c43f45a888105e5c2b18b14c32b3409d93a1b0",
+    "digests": [
+      "node@sha256:14078204b6bb268c107ceff6d3c43f45a888105e5c2b18b14c32b3409d93a1b0"
+    ]
+  },
+  "command": [
+    "sh",
+    "-c",
+    "set -e; export npm_config_cache=/work/.npm-cache; node --version; npm ci --no-audit --no-fund; npm test -- --runInBand test/stream-chunks.spec.js"
+  ],
+  "exit_code": 0,
+  "timeout_seconds": 240,
+  "container_name": "nightly-oss-78c900126f8f",
+  "elapsed_seconds": 8.491
+}

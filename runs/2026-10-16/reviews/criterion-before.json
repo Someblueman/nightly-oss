@@ -1,0 +1,19 @@
+{
+  "started": "2026-10-16T01:15:25.576687+00:00",
+  "upstream_or_head_commit": "ad47fe16eef8d7644cca0087db91ff5766235d3b",
+  "source_sha256": "555baf73094a387e1d491a97d59ebc76259d72e1a7469feda108da853307cde8",
+  "image": {
+    "id": "sha256:14078204b6bb268c107ceff6d3c43f45a888105e5c2b18b14c32b3409d93a1b0",
+    "digests": [
+      "node@sha256:14078204b6bb268c107ceff6d3c43f45a888105e5c2b18b14c32b3409d93a1b0"
+    ]
+  },
+  "command": [
+    "node",
+    "criterion-check.cjs"
+  ],
+  "exit_code": 1,
+  "timeout_seconds": 120,
+  "container_name": "nightly-oss-1c99a4ddeaa6",
+  "elapsed_seconds": 0.372
+}

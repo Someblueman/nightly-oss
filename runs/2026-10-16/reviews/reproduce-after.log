@@ -1,0 +1,14 @@
+Independent quoted-stream checker; Node v24.22.0
+{"case":"literal-claim","mode":"node","tested":25,"passed":25,"failed":0,"examples":[]}
+{"case":"literal-claim","mode":"web","tested":25,"passed":25,"failed":0,"examples":[]}
+{"case":"literal-claim","mode":"callback","tested":25,"passed":25,"failed":0,"examples":[]}
+{"case":"doubled-quotes-and-delimiter","mode":"node","tested":53,"passed":53,"failed":0,"examples":[]}
+{"case":"doubled-quotes-and-delimiter","mode":"web","tested":53,"passed":53,"failed":0,"examples":[]}
+{"case":"doubled-quotes-and-delimiter","mode":"callback","tested":53,"passed":53,"failed":0,"examples":[]}
+{"case":"quoted-header-multiline-crlf","mode":"node","tested":68,"passed":68,"failed":0,"examples":[]}
+{"case":"quoted-header-multiline-crlf","mode":"web","tested":68,"passed":68,"failed":0,"examples":[]}
+{"case":"quoted-header-multiline-crlf","mode":"callback","tested":68,"passed":68,"failed":0,"examples":[]}
+{"case":"configured-conversion-mapping-eof","mode":"node","tested":56,"passed":56,"failed":0,"examples":[]}
+{"case":"configured-conversion-mapping-eof","mode":"web","tested":56,"passed":56,"failed":0,"examples":[]}
+{"case":"configured-conversion-mapping-eof","mode":"callback","tested":56,"passed":56,"failed":0,"examples":[]}
+{"total":606,"passed":606,"failed":0}
