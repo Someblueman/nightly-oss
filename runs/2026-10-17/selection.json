@@ -1,0 +1,11 @@
+{
+  "mode": "continuation",
+  "project": "iuccio/csvToJson",
+  "previous_report": "../2026-10-16.md",
+  "reason": "The prior independent criterion review reproduced a CRLF/header-offset defect on both revisions and supplied a concrete next experiment. This is the first continuation night after the new-project selection.",
+  "current_upstream_commit": "ad47fe16eef8d7644cca0087db91ff5766235d3b",
+  "baseline_commit": "31e6cda09bb69d462c3ab9d66fa4157b430c1b8d",
+  "baseline_source": "https://github.com/Someblueman/csvToJson/commit/31e6cda09bb69d462c3ab9d66fa4157b430c1b8d",
+  "branch": "nightly/2026-10-17-stream-crlf-boundaries",
+  "consecutive_nights_without_new_evidence": 0
+}

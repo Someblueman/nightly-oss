@@ -1,0 +1,548 @@
+v24.22.0
+npm warn deprecated whatwg-encoding@2.0.0: Use @exodus/bytes instead for a more spec-conformant and faster implementation
+npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+npm warn deprecated lodash.isequal@4.5.0: This package is deprecated. Use require('node:util').isDeepStrictEqual instead.
+npm warn deprecated lodash.get@4.4.2: This package is deprecated. Use the optional chaining (?.) operator instead.
+npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+npm warn deprecated glob@7.2.3: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+npm warn deprecated glob@7.2.3: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+npm warn deprecated glob@10.5.0: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+npm warn deprecated core-js@2.6.12: core-js@<3.23.3 is no longer maintained and not recommended for usage due to the number of issues. Because of the V8 engine whims, feature detection in old core-js versions could cause a slowdown up to 100x even if nothing is polyfilled. Some versions have web compatibility issues. Please, upgrade your dependencies to the actual version of core-js.
+
+added 719 packages in 7s
+npm warn install-scripts 3 packages have install scripts not yet covered by allowScripts:
+npm warn install-scripts   @parcel/watcher@2.6.0 (install: node scripts/build-from-source.js)
+npm warn install-scripts   core-js@2.6.12 (postinstall: node -e "try{require('./postinstall')}catch(e){}")
+npm warn install-scripts   unrs-resolver@1.12.2 (postinstall: node postinstall.js)
+npm warn install-scripts
+npm warn install-scripts Run `npm install-scripts ls` to review, or `npm install-scripts approve <pkg>` to allow.
+npm notice
+npm notice New major version of npm available! 11.19.1 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice
+
+> convert-csv-to-json@4.90.0 test
+> jest --runInBand test/stream-line-endings.spec.js
+
+FAIL test/stream-line-endings.spec.js
+  record separators across stream chunks
+    ✕ Node stream: CRLF split before the header (4 ms)
+    ✕ Node stream: empty chunks between CR and LF (1 ms)
+    ✕ Node stream: several split CRLF separators (1 ms)
+    ✕ Node stream: blank preamble record
+    ✓ Node stream: standalone CR with a blank preamble
+    ✓ Node stream: standalone CR at end of stream
+    ✓ Node stream: standalone LF (1 ms)
+    ✕ Node stream: quoted CRLF content
+    ✓ Node stream: default header index
+    ✕ Node stream: one character chunks (1 ms)
+    ✕ browser stream: CRLF split before the header (1 ms)
+    ✕ browser stream: empty chunks between CR and LF
+    ✕ browser stream: several split CRLF separators (1 ms)
+    ✕ browser stream: blank preamble record
+    ✓ browser stream: standalone CR with a blank preamble
+    ✓ browser stream: standalone CR at end of stream (1 ms)
+    ✓ browser stream: standalone LF
+    ✕ browser stream: quoted CRLF content
+    ✓ browser stream: default header index
+    ✕ browser stream: one character chunks
+    ✕ streamed file callbacks: CRLF split before the header (1 ms)
+    ✕ streamed file callbacks: empty chunks between CR and LF
+    ✕ streamed file callbacks: several split CRLF separators
+    ✕ streamed file callbacks: blank preamble record
+    ✓ streamed file callbacks: standalone CR with a blank preamble
+    ✓ streamed file callbacks: standalone CR at end of stream
+    ✓ streamed file callbacks: standalone LF
+    ✕ streamed file callbacks: quoted CRLF content
+    ✓ streamed file callbacks: default header index
+    ✕ streamed file callbacks: one character chunks
+
+  ● record separators across stream chunks › Node stream: CRLF split before the header
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 6
+    + Received  + 1
+
+    - Array [
+    -   Object {
+    -     "id": "1",
+    -     "note": "ok",
+    -   },
+    - ]
+    + Array []
+
+      56 |         csvToJson.indexHeader(headerIndex);
+      57 |         expect(await csvToJson.getJsonFromStreamAsync(Readable.from([chunks.join('')]))).toEqual(expected);
+    > 58 |         expect(await csvToJson.getJsonFromStreamAsync(Readable.from(chunks))).toEqual(expected);
+         |                                                                               ^
+      59 |     });
+      60 |
+      61 |     test.each(cases)('browser stream: %s', async (_name, headerIndex, chunks, expected) => {
+
+      at test/stream-line-endings.spec.js:58:79
+
+  ● record separators across stream chunks › Node stream: empty chunks between CR and LF
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 6
+    + Received  + 1
+
+    - Array [
+    -   Object {
+    -     "id": "1",
+    -     "note": "ok",
+    -   },
+    - ]
+    + Array []
+
+      56 |         csvToJson.indexHeader(headerIndex);
+      57 |         expect(await csvToJson.getJsonFromStreamAsync(Readable.from([chunks.join('')]))).toEqual(expected);
+    > 58 |         expect(await csvToJson.getJsonFromStreamAsync(Readable.from(chunks))).toEqual(expected);
+         |                                                                               ^
+      59 |     });
+      60 |
+      61 |     test.each(cases)('browser stream: %s', async (_name, headerIndex, chunks, expected) => {
+
+      at test/stream-line-endings.spec.js:58:79
+
+  ● record separators across stream chunks › Node stream: several split CRLF separators
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 2
+    + Received  + 4
+
+      Array [
+        Object {
+    -     "id": "1",
+    -     "note": "ok",
+    +     "second": "id",
+    +   },
+    +   Object {
+    +     "second": "1",
+        },
+      ]
+
+      56 |         csvToJson.indexHeader(headerIndex);
+      57 |         expect(await csvToJson.getJsonFromStreamAsync(Readable.from([chunks.join('')]))).toEqual(expected);
+    > 58 |         expect(await csvToJson.getJsonFromStreamAsync(Readable.from(chunks))).toEqual(expected);
+         |                                                                               ^
+      59 |     });
+      60 |
+      61 |     test.each(cases)('browser stream: %s', async (_name, headerIndex, chunks, expected) => {
+
+      at test/stream-line-endings.spec.js:58:79
+
+  ● record separators across stream chunks › Node stream: blank preamble record
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 6
+    + Received  + 1
+
+    - Array [
+    -   Object {
+    -     "id": "1",
+    -     "note": "ok",
+    -   },
+    - ]
+    + Array []
+
+      56 |         csvToJson.indexHeader(headerIndex);
+      57 |         expect(await csvToJson.getJsonFromStreamAsync(Readable.from([chunks.join('')]))).toEqual(expected);
+    > 58 |         expect(await csvToJson.getJsonFromStreamAsync(Readable.from(chunks))).toEqual(expected);
+         |                                                                               ^
+      59 |     });
+      60 |
+      61 |     test.each(cases)('browser stream: %s', async (_name, headerIndex, chunks, expected) => {
+
+      at test/stream-line-endings.spec.js:58:79
+
+  ● record separators across stream chunks › Node stream: quoted CRLF content
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 7
+    + Received  + 1
+
+    - Array [
+    -   Object {
+    -     "id": "1",
+    -     "note": "line
+    - break",
+    -   },
+    - ]
+    + Array []
+
+      56 |         csvToJson.indexHeader(headerIndex);
+      57 |         expect(await csvToJson.getJsonFromStreamAsync(Readable.from([chunks.join('')]))).toEqual(expected);
+    > 58 |         expect(await csvToJson.getJsonFromStreamAsync(Readable.from(chunks))).toEqual(expected);
+         |                                                                               ^
+      59 |     });
+      60 |
+      61 |     test.each(cases)('browser stream: %s', async (_name, headerIndex, chunks, expected) => {
+
+      at test/stream-line-endings.spec.js:58:79
+
+  ● record separators across stream chunks › Node stream: one character chunks
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 6
+    + Received  + 1
+
+    - Array [
+    -   Object {
+    -     "id": "1",
+    -     "note": "ok",
+    -   },
+    - ]
+    + Array []
+
+      56 |         csvToJson.indexHeader(headerIndex);
+      57 |         expect(await csvToJson.getJsonFromStreamAsync(Readable.from([chunks.join('')]))).toEqual(expected);
+    > 58 |         expect(await csvToJson.getJsonFromStreamAsync(Readable.from(chunks))).toEqual(expected);
+         |                                                                               ^
+      59 |     });
+      60 |
+      61 |     test.each(cases)('browser stream: %s', async (_name, headerIndex, chunks, expected) => {
+
+      at test/stream-line-endings.spec.js:58:79
+
+  ● record separators across stream chunks › browser stream: CRLF split before the header
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 6
+    + Received  + 1
+
+    - Array [
+    -   Object {
+    -     "id": "1",
+    -     "note": "ok",
+    -   },
+    - ]
+    + Array []
+
+      62 |         csvToJson.indexHeader(headerIndex);
+      63 |         expect(await csvToJson.browser.getJsonFromStreamAsync(webStream([chunks.join('')]))).toEqual(expected);
+    > 64 |         expect(await csvToJson.browser.getJsonFromStreamAsync(webStream(chunks))).toEqual(expected);
+         |                                                                                   ^
+      65 |     });
+      66 |
+      67 |     test.each(cases)('streamed file callbacks: %s', async (_name, headerIndex, chunks, expected) => {
+
+      at test/stream-line-endings.spec.js:64:83
+
+  ● record separators across stream chunks › browser stream: empty chunks between CR and LF
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 6
+    + Received  + 1
+
+    - Array [
+    -   Object {
+    -     "id": "1",
+    -     "note": "ok",
+    -   },
+    - ]
+    + Array []
+
+      62 |         csvToJson.indexHeader(headerIndex);
+      63 |         expect(await csvToJson.browser.getJsonFromStreamAsync(webStream([chunks.join('')]))).toEqual(expected);
+    > 64 |         expect(await csvToJson.browser.getJsonFromStreamAsync(webStream(chunks))).toEqual(expected);
+         |                                                                                   ^
+      65 |     });
+      66 |
+      67 |     test.each(cases)('streamed file callbacks: %s', async (_name, headerIndex, chunks, expected) => {
+
+      at test/stream-line-endings.spec.js:64:83
+
+  ● record separators across stream chunks › browser stream: several split CRLF separators
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 2
+    + Received  + 4
+
+      Array [
+        Object {
+    -     "id": "1",
+    -     "note": "ok",
+    +     "second": "id",
+    +   },
+    +   Object {
+    +     "second": "1",
+        },
+      ]
+
+      62 |         csvToJson.indexHeader(headerIndex);
+      63 |         expect(await csvToJson.browser.getJsonFromStreamAsync(webStream([chunks.join('')]))).toEqual(expected);
+    > 64 |         expect(await csvToJson.browser.getJsonFromStreamAsync(webStream(chunks))).toEqual(expected);
+         |                                                                                   ^
+      65 |     });
+      66 |
+      67 |     test.each(cases)('streamed file callbacks: %s', async (_name, headerIndex, chunks, expected) => {
+
+      at test/stream-line-endings.spec.js:64:83
+
+  ● record separators across stream chunks › browser stream: blank preamble record
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 6
+    + Received  + 1
+
+    - Array [
+    -   Object {
+    -     "id": "1",
+    -     "note": "ok",
+    -   },
+    - ]
+    + Array []
+
+      62 |         csvToJson.indexHeader(headerIndex);
+      63 |         expect(await csvToJson.browser.getJsonFromStreamAsync(webStream([chunks.join('')]))).toEqual(expected);
+    > 64 |         expect(await csvToJson.browser.getJsonFromStreamAsync(webStream(chunks))).toEqual(expected);
+         |                                                                                   ^
+      65 |     });
+      66 |
+      67 |     test.each(cases)('streamed file callbacks: %s', async (_name, headerIndex, chunks, expected) => {
+
+      at test/stream-line-endings.spec.js:64:83
+
+  ● record separators across stream chunks › browser stream: quoted CRLF content
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 7
+    + Received  + 1
+
+    - Array [
+    -   Object {
+    -     "id": "1",
+    -     "note": "line
+    - break",
+    -   },
+    - ]
+    + Array []
+
+      62 |         csvToJson.indexHeader(headerIndex);
+      63 |         expect(await csvToJson.browser.getJsonFromStreamAsync(webStream([chunks.join('')]))).toEqual(expected);
+    > 64 |         expect(await csvToJson.browser.getJsonFromStreamAsync(webStream(chunks))).toEqual(expected);
+         |                                                                                   ^
+      65 |     });
+      66 |
+      67 |     test.each(cases)('streamed file callbacks: %s', async (_name, headerIndex, chunks, expected) => {
+
+      at test/stream-line-endings.spec.js:64:83
+
+  ● record separators across stream chunks › browser stream: one character chunks
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 6
+    + Received  + 1
+
+    - Array [
+    -   Object {
+    -     "id": "1",
+    -     "note": "ok",
+    -   },
+    - ]
+    + Array []
+
+      62 |         csvToJson.indexHeader(headerIndex);
+      63 |         expect(await csvToJson.browser.getJsonFromStreamAsync(webStream([chunks.join('')]))).toEqual(expected);
+    > 64 |         expect(await csvToJson.browser.getJsonFromStreamAsync(webStream(chunks))).toEqual(expected);
+         |                                                                                   ^
+      65 |     });
+      66 |
+      67 |     test.each(cases)('streamed file callbacks: %s', async (_name, headerIndex, chunks, expected) => {
+
+      at test/stream-line-endings.spec.js:64:83
+
+  ● record separators across stream chunks › streamed file callbacks: CRLF split before the header
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 6
+    + Received  + 1
+
+    - Array [
+    -   Object {
+    -     "id": "1",
+    -     "note": "ok",
+    -   },
+    - ]
+    + Array []
+
+      78 |         });
+      79 |
+    > 80 |         expect(received).toEqual(expected);
+         |                          ^
+      81 |         expect(onComplete).toHaveBeenCalledTimes(1);
+      82 |         expect(onComplete).toHaveBeenCalledWith(expected);
+      83 |     });
+
+      at test/stream-line-endings.spec.js:80:26
+
+  ● record separators across stream chunks › streamed file callbacks: empty chunks between CR and LF
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 6
+    + Received  + 1
+
+    - Array [
+    -   Object {
+    -     "id": "1",
+    -     "note": "ok",
+    -   },
+    - ]
+    + Array []
+
+      78 |         });
+      79 |
+    > 80 |         expect(received).toEqual(expected);
+         |                          ^
+      81 |         expect(onComplete).toHaveBeenCalledTimes(1);
+      82 |         expect(onComplete).toHaveBeenCalledWith(expected);
+      83 |     });
+
+      at test/stream-line-endings.spec.js:80:26
+
+  ● record separators across stream chunks › streamed file callbacks: several split CRLF separators
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 2
+    + Received  + 4
+
+      Array [
+        Object {
+    -     "id": "1",
+    -     "note": "ok",
+    +     "second": "id",
+    +   },
+    +   Object {
+    +     "second": "1",
+        },
+      ]
+
+      78 |         });
+      79 |
+    > 80 |         expect(received).toEqual(expected);
+         |                          ^
+      81 |         expect(onComplete).toHaveBeenCalledTimes(1);
+      82 |         expect(onComplete).toHaveBeenCalledWith(expected);
+      83 |     });
+
+      at test/stream-line-endings.spec.js:80:26
+
+  ● record separators across stream chunks › streamed file callbacks: blank preamble record
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 6
+    + Received  + 1
+
+    - Array [
+    -   Object {
+    -     "id": "1",
+    -     "note": "ok",
+    -   },
+    - ]
+    + Array []
+
+      78 |         });
+      79 |
+    > 80 |         expect(received).toEqual(expected);
+         |                          ^
+      81 |         expect(onComplete).toHaveBeenCalledTimes(1);
+      82 |         expect(onComplete).toHaveBeenCalledWith(expected);
+      83 |     });
+
+      at test/stream-line-endings.spec.js:80:26
+
+  ● record separators across stream chunks › streamed file callbacks: quoted CRLF content
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 7
+    + Received  + 1
+
+    - Array [
+    -   Object {
+    -     "id": "1",
+    -     "note": "line
+    - break",
+    -   },
+    - ]
+    + Array []
+
+      78 |         });
+      79 |
+    > 80 |         expect(received).toEqual(expected);
+         |                          ^
+      81 |         expect(onComplete).toHaveBeenCalledTimes(1);
+      82 |         expect(onComplete).toHaveBeenCalledWith(expected);
+      83 |     });
+
+      at test/stream-line-endings.spec.js:80:26
+
+  ● record separators across stream chunks › streamed file callbacks: one character chunks
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 6
+    + Received  + 1
+
+    - Array [
+    -   Object {
+    -     "id": "1",
+    -     "note": "ok",
+    -   },
+    - ]
+    + Array []
+
+      78 |         });
+      79 |
+    > 80 |         expect(received).toEqual(expected);
+         |                          ^
+      81 |         expect(onComplete).toHaveBeenCalledTimes(1);
+      82 |         expect(onComplete).toHaveBeenCalledWith(expected);
+      83 |     });
+
+      at test/stream-line-endings.spec.js:80:26
+
+---------------------|---------|----------|---------|---------|---------------------------------------------------------------------------------------------------------------------------------
+File                 | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s                                                                                                               
+---------------------|---------|----------|---------|---------|---------------------------------------------------------------------------------------------------------------------------------
+All files            |   40.12 |    27.25 |   34.04 |   40.95 |                                                                                                                                 
+ work                |   57.77 |    14.28 |   36.36 |   61.64 |                                                                                                                                 
+  index.js           |   57.77 |    14.28 |   36.36 |   61.64 | 107,121,124,137,146,155,164,173,182,191,200,232-238,255-258,277,289,299,310,346,362,375-378                                     
+ work/src            |    15.8 |     8.28 |   12.76 |   16.31 |                                                                                                                                 
+  browserApi.js      |   21.05 |    22.22 |   15.78 |   22.22 | 33-160,181,185,211-227,262,271,296-358                                                                                          
+  csvToJson.js       |    8.07 |        0 |       0 |    8.28 | 35-480                                                                                                                          
+  csvToJsonAsync.js  |   37.14 |    13.63 |    37.5 |   37.14 | 33-99,132-167                                                                                                                   
+ work/src/core       |   63.44 |     53.8 |    61.9 |    65.6 |                                                                                                                                 
+  configurable.js    |      75 |    33.33 |   81.81 |      75 | 66,79-81,91,113-114                                                                                                             
+  errors.js          |    2.22 |        0 |       0 |    2.43 | 17-330                                                                                                                          
+  parserConfig.js    |     100 |    33.33 |     100 |     100 | 21-31                                                                                                                           
+  streamProcessor.js |   71.54 |    63.94 |   85.29 |   73.81 | 61-66,83-86,108-109,116-147,190-191,210,218-219,226,235,240,285,350-351,364,389-390,405,422,429,433,449,461-473,496-498,531,578 
+ work/src/util       |   14.77 |     6.89 |    8.82 |   14.77 |                                                                                                                                 
+  fileUtils.js       |    7.84 |        0 |       0 |    7.84 | 21-214                                                                                                                          
+  jsonUtils.js       |      40 |      100 |       0 |      40 | 17-20                                                                                                                           
+  stringUtils.js     |   21.87 |     12.5 |      25 |   21.87 | 28,41-57,78-161                                                                                                                 
+---------------------|---------|----------|---------|---------|---------------------------------------------------------------------------------------------------------------------------------
+Test Suites: 1 failed, 1 total
+Tests:       18 failed, 12 passed, 30 total
+Snapshots:   0 total
+Time:        0.547 s
+Ran all test suites matching test/stream-line-endings.spec.js.

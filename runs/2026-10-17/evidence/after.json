@@ -1,0 +1,20 @@
+{
+  "started": "2026-10-17T01:02:14.846258+00:00",
+  "upstream_or_head_commit": "e80bf7bb2f0716c5077e733a1eff89b1c63e7694",
+  "source_sha256": "54b85939af4776a162a3f4a89c0e7816641bcf3fa63facdc2433655a04efc677",
+  "image": {
+    "id": "sha256:14078204b6bb268c107ceff6d3c43f45a888105e5c2b18b14c32b3409d93a1b0",
+    "digests": [
+      "node@sha256:14078204b6bb268c107ceff6d3c43f45a888105e5c2b18b14c32b3409d93a1b0"
+    ]
+  },
+  "command": [
+    "sh",
+    "-c",
+    "set -e; export npm_config_cache=/work/.npm-cache; node --version; npm ci --no-audit --no-fund; npm test -- --runInBand test/stream-line-endings.spec.js"
+  ],
+  "exit_code": 0,
+  "timeout_seconds": 240,
+  "container_name": "nightly-oss-58fdfee9be53",
+  "elapsed_seconds": 8.194
+}

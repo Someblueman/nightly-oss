@@ -1,0 +1,44 @@
+{
+  "role": "reproduce",
+  "context": "fresh agent",
+  "candidate_commit": "e80bf7bb2f0716c5077e733a1eff89b1c63e7694",
+  "pass": true,
+  "reviewed_at": "2026-10-17T01:05:44.631145+00:00",
+  "summary": "Independently reproduced the split-CRLF header-index bug and its repair through four public API paths. The unchanged checker failed 96 of 1428 baseline cases while all 44 unsplit controls passed; the exact candidate passed all 1428 cases.",
+  "evidence": [
+    "Derived and saved reproduce-check.cjs from claim.md plus baseline README.md, docs/ASYNC.md and docs/BROWSER.md before reading candidate production changes or tests. Candidate tests were not used to derive or run this checker. The production diff was inspected only after both executions.",
+    "Public API documentation: https://github.com/iuccio/csvToJson/blob/ad47fe16eef8d7644cca0087db91ff5766235d3b/README.md ; https://github.com/iuccio/csvToJson/blob/ad47fe16eef8d7644cca0087db91ff5766235d3b/docs/ASYNC.md ; https://github.com/iuccio/csvToJson/blob/ad47fe16eef8d7644cca0087db91ff5766235d3b/docs/BROWSER.md . Documentation was also read from baseline 31e6cda09bb69d462c3ab9d66fa4157b430c1b8d using git show.",
+    "Both checks ran via python3 night.py run --checkout .work/checkouts/iuccio-csvToJson-review-reproduce-20261017 --image node:24-bookworm --timeout 240 -- node reproduce-check.cjs. The review checkout was detached at the corresponding exact commit; the only added file was the unchanged checker.",
+    "Environment: Node v24.22.0; immutable image sha256:14078204b6bb268c107ceff6d3c43f45a888105e5c2b18b14c32b3409d93a1b0. Commands and image records match before and after.",
+    "Eleven explicit-output fixtures cover header offsets 1, 2 and 3; default header; real blank preamble records; mixed standalone CR/LF; CR at EOF; quoted EOF; embedded CR/LF and escaped quotes; disabled quoting; value conversion; row mapping/filtering. Each runs unsplit, at every possible two-chunk cut, one character per chunk, and one character per chunk with two empty chunks after each character.",
+    "API paths: Node Readable with string chunks; Node Readable with ASCII Buffer chunks; browser getJsonFromStreamAsync with native Node Web ReadableStream and ASCII Uint8Array chunks; browser getJsonFromFileStreamingAsyncWithCallback using a File subclass whose stream supplies those chunks. Callback onComplete and concatenated onChunk rows are both checked.",
+    "Baseline concrete failure: indexHeader(1), chunks [\"preamble\\r\", \"\\nid,note\\r\\n1,ok\\r\\n\"] return [] instead of [{\"id\":\"1\",\"note\":\"ok\"}] across all four API paths. The candidate returns the expected row.",
+    "Preserved the original helper records and logs without editing; copied public-safe duplicates to evidence/reproduce-before.json, evidence/reproduce-before.log, evidence/reproduce-after.json and evidence/reproduce-after.log. Both retained immutable input snapshots contain the exact saved checker bytes.",
+    "git diff --exit-code HEAD passed in the candidate review checkout; git status --short listed only the untracked checker. No candidate source or tests were edited, committed, pushed or published by this reviewer."
+  ],
+  "checker": "reproduce-check.cjs",
+  "checker_sha256": "7aca9ecdd709300cc318b568aac98baa84df493ce94ed725433464167031df1b",
+  "checks": {
+    "before": {
+      "record": "evidence/reproduce-before.json",
+      "output": "evidence/reproduce-before.log",
+      "output_sha256": "8e91b00a4ed966847cfcf2bfc49d5eab10e67555f1efe34de872e895e065cce6",
+      "source_sha256": "352ba92e0927f0c9b7851172d78458fffee403a994a292b5b67e110d2498f436",
+      "passed": 1332,
+      "failed": 96
+    },
+    "after": {
+      "record": "evidence/reproduce-after.json",
+      "output": "evidence/reproduce-after.log",
+      "output_sha256": "568e0bc73718fd415dd77119f24fd92dd66b2b98c97246f7076fc75091dba8b0",
+      "source_sha256": "09b03a958746f6fe08dbaf3359237d5fa6d011e8a5c1991055c4206636fdb7d1",
+      "passed": 1428,
+      "failed": 0
+    }
+  },
+  "limitations": [
+    "Uses Node Web APIs, not an actual browser engine.",
+    "ASCII byte chunks and decoded string chunks only; no claim about split multibyte decoding, malformed CSV, universal CSV conformance, callback timing, or performance.",
+    "This reproduction review does not independently rerun the full Jest/lint/docs acceptance suite or Node 22; those remain separate acceptance evidence."
+  ]
+}

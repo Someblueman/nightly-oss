@@ -1,0 +1,113 @@
+{
+  "node": "v24.22.0",
+  "scenarios": 45,
+  "counts": {
+    "node-strings": {
+      "checks": 8239,
+      "failures": 434
+    },
+    "node-ascii-buffers": {
+      "checks": 8239,
+      "failures": 434
+    },
+    "web-ascii-bytes": {
+      "checks": 8239,
+      "failures": 434
+    },
+    "streamed-file-callbacks": {
+      "checks": 8239,
+      "failures": 434
+    }
+  },
+  "affected": [
+    "records-[\"\\r\\n\",[\"p\"],\"\"]",
+    "records-[\"\\r\\n\",[\"p\"],\"\\r\"]",
+    "records-[\"\\r\\n\",[\"p\"],\"\\n\"]",
+    "records-[\"\\r\\n\",[\"p\"],\"\\r\\n\"]",
+    "records-[\"\\r\\n\",[\"p\",\"\"],\"\"]",
+    "records-[\"\\r\\n\",[\"p\",\"\"],\"\\r\"]",
+    "records-[\"\\r\\n\",[\"p\",\"\"],\"\\n\"]",
+    "records-[\"\\r\\n\",[\"p\",\"\"],\"\\r\\n\"]",
+    "mixed-endings-and-blank-preamble",
+    "quoted-newlines-escaped-quotes-and-final-cr",
+    "empty-quoted-values",
+    "plain-parser-mode",
+    "conversion-mapping-filtering-ignore-and-blank-data",
+    "semicolon-and-subarray"
+  ],
+  "examples": [
+    {
+      "scenario": "records-[\"\\r\\n\",[\"p\"],\"\"]",
+      "api": "node-strings",
+      "kind": "cuts-0-2",
+      "message": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ []\n- [\n-   {\n-     h: '1',\n-     v: 'x'\n-   },\n-   {\n-     h: '2',\n-     v: 'y'\n-   }\n- ]\n"
+    },
+    {
+      "scenario": "records-[\"\\r\\n\",[\"p\"],\"\"]",
+      "api": "node-ascii-buffers",
+      "kind": "cuts-0-2",
+      "message": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ []\n- [\n-   {\n-     h: '1',\n-     v: 'x'\n-   },\n-   {\n-     h: '2',\n-     v: 'y'\n-   }\n- ]\n"
+    },
+    {
+      "scenario": "records-[\"\\r\\n\",[\"p\"],\"\"]",
+      "api": "web-ascii-bytes",
+      "kind": "cuts-0-2",
+      "message": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ []\n- [\n-   {\n-     h: '1',\n-     v: 'x'\n-   },\n-   {\n-     h: '2',\n-     v: 'y'\n-   }\n- ]\n"
+    },
+    {
+      "scenario": "records-[\"\\r\\n\",[\"p\"],\"\"]",
+      "api": "streamed-file-callbacks",
+      "kind": "cuts-0-2",
+      "message": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ []\n- [\n-   {\n-     h: '1',\n-     v: 'x'\n-   },\n-   {\n-     h: '2',\n-     v: 'y'\n-   }\n- ]\n"
+    },
+    {
+      "scenario": "records-[\"\\r\\n\",[\"p\"],\"\"]",
+      "api": "node-strings",
+      "kind": "cuts-1-2",
+      "message": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ []\n- [\n-   {\n-     h: '1',\n-     v: 'x'\n-   },\n-   {\n-     h: '2',\n-     v: 'y'\n-   }\n- ]\n"
+    },
+    {
+      "scenario": "records-[\"\\r\\n\",[\"p\"],\"\"]",
+      "api": "node-ascii-buffers",
+      "kind": "cuts-1-2",
+      "message": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ []\n- [\n-   {\n-     h: '1',\n-     v: 'x'\n-   },\n-   {\n-     h: '2',\n-     v: 'y'\n-   }\n- ]\n"
+    },
+    {
+      "scenario": "records-[\"\\r\\n\",[\"p\"],\"\"]",
+      "api": "web-ascii-bytes",
+      "kind": "cuts-1-2",
+      "message": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ []\n- [\n-   {\n-     h: '1',\n-     v: 'x'\n-   },\n-   {\n-     h: '2',\n-     v: 'y'\n-   }\n- ]\n"
+    },
+    {
+      "scenario": "records-[\"\\r\\n\",[\"p\"],\"\"]",
+      "api": "streamed-file-callbacks",
+      "kind": "cuts-1-2",
+      "message": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ []\n- [\n-   {\n-     h: '1',\n-     v: 'x'\n-   },\n-   {\n-     h: '2',\n-     v: 'y'\n-   }\n- ]\n"
+    },
+    {
+      "scenario": "records-[\"\\r\\n\",[\"p\"],\"\"]",
+      "api": "node-strings",
+      "kind": "cuts-2-2",
+      "message": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ []\n- [\n-   {\n-     h: '1',\n-     v: 'x'\n-   },\n-   {\n-     h: '2',\n-     v: 'y'\n-   }\n- ]\n"
+    },
+    {
+      "scenario": "records-[\"\\r\\n\",[\"p\"],\"\"]",
+      "api": "node-ascii-buffers",
+      "kind": "cuts-2-2",
+      "message": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ []\n- [\n-   {\n-     h: '1',\n-     v: 'x'\n-   },\n-   {\n-     h: '2',\n-     v: 'y'\n-   }\n- ]\n"
+    },
+    {
+      "scenario": "records-[\"\\r\\n\",[\"p\"],\"\"]",
+      "api": "web-ascii-bytes",
+      "kind": "cuts-2-2",
+      "message": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ []\n- [\n-   {\n-     h: '1',\n-     v: 'x'\n-   },\n-   {\n-     h: '2',\n-     v: 'y'\n-   }\n- ]\n"
+    },
+    {
+      "scenario": "records-[\"\\r\\n\",[\"p\"],\"\"]",
+      "api": "streamed-file-callbacks",
+      "kind": "cuts-2-2",
+      "message": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ []\n- [\n-   {\n-     h: '1',\n-     v: 'x'\n-   },\n-   {\n-     h: '2',\n-     v: 'y'\n-   }\n- ]\n"
+    }
+  ]
+}
+CRITERION: FAIL (1736 mismatches)

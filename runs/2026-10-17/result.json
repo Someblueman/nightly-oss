@@ -1,0 +1,48 @@
+{
+  "status": "verified",
+  "summary": "CRLF separators split across stream chunks now preserve header indexing and parsed rows. The same 30-case regression fails 18 cases before and passes all cases after; all 225 tests, lint and API docs pass on Node 22 and 24, and three fresh reviewers pass the exact candidate. A trailing standalone CR may delay callbacks until more input or EOF.",
+  "kind": "bug",
+  "upstream": "iuccio/csvToJson",
+  "baseline_commit": "31e6cda09bb69d462c3ab9d66fa4157b430c1b8d",
+  "publication": {
+    "repository": "Someblueman/csvToJson",
+    "parent": "iuccio/csvToJson",
+    "commit": "e80bf7bb2f0716c5077e733a1eff89b1c63e7694",
+    "remote_commit": "e80bf7bb2f0716c5077e733a1eff89b1c63e7694",
+    "branch": "nightly/2026-10-17-stream-crlf-boundaries"
+  },
+  "candidate_commit": "e80bf7bb2f0716c5077e733a1eff89b1c63e7694",
+  "candidate_source_sha256": "54b85939af4776a162a3f4a89c0e7816641bcf3fa63facdc2433655a04efc677",
+  "claim": "claim.md",
+  "checks": {
+    "before": {
+      "record": "evidence/before.json",
+      "output": "evidence/before.log",
+      "output_sha256": "bbb0062ceb6b7d628e10451c8ec2354a98ec8bcbc9fcee3daa5b46280a30e931"
+    },
+    "after": {
+      "record": "evidence/after.json",
+      "output": "evidence/after.log",
+      "output_sha256": "8a6ebf53cabaea0e33b01ff8e4b7882d59743787d710ad974a955890f0ad091e"
+    },
+    "acceptance": [
+      {
+        "record": "evidence/suite-node24.json",
+        "output": "evidence/suite-node24.log",
+        "output_sha256": "a2feda6dde8ff2dc36feacfbb566f7c93281e1c689bfdaf2a58243b51554c6ba"
+      },
+      {
+        "record": "evidence/suite-node22.json",
+        "output": "evidence/suite-node22.log",
+        "output_sha256": "3dd80eccbad5a089e39743ce087155eff3ff53a5b14cd1aa14d0afe9f3383ded"
+      }
+    ]
+  },
+  "next_step": {
+    "selection": "new_project",
+    "instruction": "Select a new eligible project using the current contribution-policy screening and random filtered-pool procedure. The CRLF/header-offset lead is complete; no new in-scope counterexample remains.",
+    "completed_branch": "nightly/2026-10-17-stream-crlf-boundaries",
+    "completed_commit": "e80bf7bb2f0716c5077e733a1eff89b1c63e7694",
+    "consecutive_nights_without_new_evidence": 0
+  }
+}

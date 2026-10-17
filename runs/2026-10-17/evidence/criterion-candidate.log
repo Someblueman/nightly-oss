@@ -1,0 +1,25 @@
+{
+  "node": "v24.22.0",
+  "scenarios": 45,
+  "counts": {
+    "node-strings": {
+      "checks": 8239,
+      "failures": 0
+    },
+    "node-ascii-buffers": {
+      "checks": 8239,
+      "failures": 0
+    },
+    "web-ascii-bytes": {
+      "checks": 8239,
+      "failures": 0
+    },
+    "streamed-file-callbacks": {
+      "checks": 8239,
+      "failures": 0
+    }
+  },
+  "affected": [],
+  "examples": []
+}
+CRITERION: PASS
